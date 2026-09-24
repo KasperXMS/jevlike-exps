@@ -1,0 +1,27 @@
+{
+  "model": "Qwen/Qwen3-0.6B-Base",
+  "dataset": "arc_challenge",
+  "split": "test",
+  "seed": 42,
+  "sample_count": 100,
+  "methods": {
+    "generation": {
+      "accuracy": 0.54,
+      "correct": 54,
+      "parsed_or_supported": 85,
+      "mean_latency_ms": 1060.4806269938126
+    },
+    "label_logit": {
+      "accuracy": 0.57,
+      "correct": 57,
+      "parsed_or_supported": 100,
+      "mean_latency_ms": 340.61394199728966
+    },
+    "option_likelihood": {
+      "accuracy": 0.39,
+      "correct": 39,
+      "parsed_or_supported": 100,
+      "mean_latency_ms": 1130.5298300134018
+    }
+  }
+}

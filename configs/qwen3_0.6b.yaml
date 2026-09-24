@@ -1,0 +1,8 @@
+model_name: Qwen/Qwen3-0.6B-Base
+device: auto
+dtype: auto
+trust_remote_code: false
+seed: 42
+generation:
+  max_new_tokens: 8
+
