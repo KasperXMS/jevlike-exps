@@ -1,0 +1,11 @@
+{
+  "combinations": [
+    {
+      "model": "Qwen/Qwen3-4B-Base",
+      "batch_size": 64,
+      "method": "generation",
+      "status": "memory_limit",
+      "reason": "Warm-up saturated 16077/16380 MiB physical VRAM under WDDM and entered sustained shared-memory paging; stopped because this was no longer a usable CUDA-resident workload."
+    }
+  ]
+}

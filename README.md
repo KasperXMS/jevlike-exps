@@ -292,3 +292,73 @@ generation versus label-logit on CUDA with synchronized timing, warm-up,
 multiple batch sizes, throughput, and peak-memory measurement. All M5 raw
 records, summaries, paired groups, invariance metrics, calibration observations,
 and seven scaling figures are in `results/milestone5/`.
+
+## Milestone 6A: CUDA efficiency
+
+### Research question and setup
+
+Milestone 6A asks whether the now-useful zero-decoding interface produces a
+real systems benefit. It benchmarks generation and label-logit on an RTX 4060
+Ti 16 GB using the same 0.6B, 1.7B, and 4B models. A deterministic set of 64
+four-option prompts is drawn from the frozen M3 pool (58 MMLU and 6 ARC); each
+batch size uses the same nested prefix for every model and method.
+
+Generation performs one prefill plus fixed-step greedy decoding to exactly
+eight new tokens, matching the evaluation token cap but deliberately disabling
+early EOS termination. Label-logit performs one no-cache forward and a
+restricted softmax. Every successful combination uses three warm-ups and 20
+timed trials. CUDA events are synchronized, and mean/P50/P95, throughput, and
+peak CUDA allocation are saved per combination.
+
+```powershell
+python scripts/run_milestone6a.py --config configs/qwen3_0.6b.yaml
+python scripts/validate_milestone6a.py
+```
+
+### Results
+
+Latency speedup is generation total latency divided by label-logit total
+latency; the throughput ratio is numerically identical because both methods use
+the same batch size.
+
+| Model | Batch 1 | Batch 8 | Batch 32 | Batch 64 |
+| --- | ---: | ---: | ---: | ---: |
+| 0.6B | 7.46x | 2.34x | 1.48x | 1.42x |
+| 1.7B | 7.50x | 1.65x | 1.27x | 1.23x |
+| 4B | 7.43x | 1.42x | 1.66x | memory-limited / label only |
+
+At batch 1, label-logit raises throughput from 2.32 to 17.30 samples/s for
+0.6B, 2.33 to 17.50 for 1.7B, and 1.87 to 13.88 for 4B. At batch 32 the
+generation/label throughputs are 14.30/21.17, 8.77/11.14, and 2.93/4.86
+samples/s. Restricted scoring itself costs below 0.2 ms in every measured
+combination; almost all label latency is the shared model forward.
+
+The memory benefit grows with batch size. At batch 64, generation versus label
+peak allocation is 7.35/2.38 GiB for 0.6B and 10.61/5.58 GiB for 1.7B. For 4B
+at batch 32 it is 12.14/9.16 GiB. The 4B batch-64 generation warm-up saturated
+16077/16380 MiB physical VRAM under Windows WDDM and entered sustained shared-
+memory paging, so it is recorded as `memory_limit`, not mislabeled as a CUDA
+OOM. Batch-64 label-logit completed at 11.04 GiB and 4.47 samples/s.
+
+### Interpretation and limitations
+
+Zero decoding provides a large low-batch latency gain and a smaller but still
+real throughput gain after prefill dominates at larger batches. It also avoids
+the KV-cache growth that made the largest 4B generation workload unusable on
+this GPU. The result supports a decision interface for workloads that need a
+small fixed answer rather than generated prose; it does not imply a universal
+7x speedup.
+
+The benchmark uses one consumer GPU under WDDM, one nested prompt sample, no
+CUDA graphs, no specialized serving engine, and a fixed eight-token decode.
+Real generation that stops before eight tokens would reduce the advantage;
+longer answers would increase it. The four-option timing set excludes
+CommonsenseQA because keeping candidate tensor shape fixed avoids changing the
+scoring workload by method. Reported numbers are batch latency, not per-sample
+latency, and are not mixed with earlier CPU smoke timings.
+
+These results justify entering **Milestone 7**. The next research question is
+whether a shared encoded state can answer multiple independent decision
+questions without repeating context prefill. Raw trials, the explicit
+memory-limit record, environment metadata, summary, validator, and separate
+speedup/throughput/memory plots are in `results/milestone6a/`.
