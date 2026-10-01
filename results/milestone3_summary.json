@@ -1,0 +1,166 @@
+{
+  "model": "Qwen/Qwen3-0.6B-Base",
+  "datasets": {
+    "arc_challenge": {
+      "sample_count": 100,
+      "generation": {
+        "accuracy": 0.53,
+        "parse_rate": 0.84,
+        "conditional_accuracy": 0.6309523809523809
+      },
+      "label_logit": {
+        "accuracy": 0.57,
+        "mean_candidate_mass": 0.25268654837447685,
+        "mean_confidence": 0.5822244557738304
+      },
+      "option_likelihood": {
+        "accuracy_mean": 0.39,
+        "accuracy_sum": 0.42,
+        "exact_mean": 0.38,
+        "exact_sum": 0.33
+      }
+    },
+    "mmlu": {
+      "sample_count": 500,
+      "generation": {
+        "accuracy": 0.35,
+        "parse_rate": 0.694,
+        "conditional_accuracy": 0.5043227665706052
+      },
+      "label_logit": {
+        "accuracy": 0.426,
+        "mean_candidate_mass": 0.3330620827684179,
+        "mean_confidence": 0.4929745076298714
+      },
+      "option_likelihood": {
+        "accuracy_mean": 0.366,
+        "accuracy_sum": 0.378,
+        "exact_mean": 0.35,
+        "exact_sum": 0.33
+      },
+      "subjects": {
+        "abstract_algebra": {
+          "sample_count": 100,
+          "generation": {
+            "accuracy": 0.09,
+            "parse_rate": 0.35,
+            "conditional_accuracy": 0.2571428571428571
+          },
+          "label_logit": {
+            "accuracy": 0.31,
+            "mean_candidate_mass": 0.12812802153464872,
+            "mean_confidence": 0.37295526832342146
+          },
+          "option_likelihood": {
+            "accuracy_mean": 0.3,
+            "accuracy_sum": 0.22,
+            "exact_mean": 0.32,
+            "exact_sum": 0.27
+          }
+        },
+        "computer_science": {
+          "sample_count": 100,
+          "generation": {
+            "accuracy": 0.27,
+            "parse_rate": 0.79,
+            "conditional_accuracy": 0.34177215189873417
+          },
+          "label_logit": {
+            "accuracy": 0.26,
+            "mean_candidate_mass": 0.23422110867337323,
+            "mean_confidence": 0.45706394881010054
+          },
+          "option_likelihood": {
+            "accuracy_mean": 0.35,
+            "accuracy_sum": 0.37,
+            "exact_mean": 0.32,
+            "exact_sum": 0.36
+          }
+        },
+        "history": {
+          "sample_count": 100,
+          "generation": {
+            "accuracy": 0.6,
+            "parse_rate": 0.94,
+            "conditional_accuracy": 0.6382978723404256
+          },
+          "label_logit": {
+            "accuracy": 0.62,
+            "mean_candidate_mass": 0.7449980753660203,
+            "mean_confidence": 0.5881140926480293
+          },
+          "option_likelihood": {
+            "accuracy_mean": 0.43,
+            "accuracy_sum": 0.5,
+            "exact_mean": 0.43,
+            "exact_sum": 0.39
+          }
+        },
+        "physics": {
+          "sample_count": 100,
+          "generation": {
+            "accuracy": 0.13,
+            "parse_rate": 0.41,
+            "conditional_accuracy": 0.3170731707317073
+          },
+          "label_logit": {
+            "accuracy": 0.28,
+            "mean_candidate_mass": 0.1726366467407206,
+            "mean_confidence": 0.44500635623931883
+          },
+          "option_likelihood": {
+            "accuracy_mean": 0.29,
+            "accuracy_sum": 0.29,
+            "exact_mean": 0.27,
+            "exact_sum": 0.2
+          }
+        },
+        "psychology": {
+          "sample_count": 100,
+          "generation": {
+            "accuracy": 0.66,
+            "parse_rate": 0.98,
+            "conditional_accuracy": 0.673469387755102
+          },
+          "label_logit": {
+            "accuracy": 0.66,
+            "mean_candidate_mass": 0.3853265615273267,
+            "mean_confidence": 0.6017328721284866
+          },
+          "option_likelihood": {
+            "accuracy_mean": 0.46,
+            "accuracy_sum": 0.51,
+            "exact_mean": 0.41,
+            "exact_sum": 0.43
+          }
+        }
+      }
+    },
+    "commonsenseqa": {
+      "sample_count": 100,
+      "generation": {
+        "accuracy": 0.46,
+        "parse_rate": 0.93,
+        "conditional_accuracy": 0.4946236559139785
+      },
+      "label_logit": {
+        "accuracy": 0.54,
+        "mean_candidate_mass": 0.2267147834878415,
+        "mean_confidence": 0.526914909183979
+      },
+      "option_likelihood": {
+        "accuracy_mean": 0.35,
+        "accuracy_sum": 0.42,
+        "exact_mean": 0.25,
+        "exact_sum": 0.34
+      }
+    }
+  },
+  "milestone": "3",
+  "seed": 42,
+  "frozen_sample_id_files": {
+    "arc_challenge": "F:\\Codes\\jevlike-exps\\jev_mvp\\results\\arc_challenge_sample_ids.json",
+    "mmlu": "F:\\Codes\\jevlike-exps\\jev_mvp\\results\\mmlu_sample_ids.json",
+    "commonsenseqa": "F:\\Codes\\jevlike-exps\\jev_mvp\\results\\commonsenseqa_sample_ids.json"
+  }
+}

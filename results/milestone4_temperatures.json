@@ -1,0 +1,18 @@
+{
+  "arc_challenge": {
+    "temperature": 0.944000964146709,
+    "calibration_count": 20
+  },
+  "commonsenseqa": {
+    "temperature": 1.429130741261858,
+    "calibration_count": 20
+  },
+  "mmlu": {
+    "temperature": 1.270989266844777,
+    "calibration_count": 100
+  },
+  "pooled": {
+    "temperature": 1.2378088023037674,
+    "calibration_count": 140
+  }
+}

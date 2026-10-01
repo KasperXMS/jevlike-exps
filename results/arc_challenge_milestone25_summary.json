@@ -1,0 +1,37 @@
+{
+  "milestone": "2.5",
+  "model": "Qwen/Qwen3-0.6B-Base",
+  "dataset": "arc_challenge",
+  "split": "test",
+  "seed": 42,
+  "sample_count": 100,
+  "frozen_sample_ids": {
+    "source": "F:\\Codes\\jevlike-exps\\jev_mvp\\results\\arc_challenge_sample_ids.json",
+    "sha256": "89b5739c30706edb510135539a92939f81c3c5e61d0e7bc5f652d18aaa94d9fc",
+    "unchanged": true
+  },
+  "generation": {
+    "end_to_end_accuracy": 0.53,
+    "parse_rate": 0.84,
+    "parsed_count": 84,
+    "conditional_accuracy": 0.6309523809523809,
+    "parsed_correct": 53
+  },
+  "label_logit": {
+    "accuracy": 0.57,
+    "mean_candidate_mass": 0.25268654837447685
+  },
+  "option_likelihood": {
+    "legacy_mean_accuracy": 0.39,
+    "legacy_summed_accuracy": 0.42,
+    "exact_text_mean_accuracy": 0.38,
+    "exact_text_summed_accuracy": 0.33
+  },
+  "paired_generation_vs_label_logit": {
+    "G+L+": 50,
+    "G+L-": 3,
+    "G-L+": 7,
+    "G-L-": 40
+  },
+  "paired_sample_ids_file": "F:\\Codes\\jevlike-exps\\jev_mvp\\results\\arc_challenge_milestone25_paired.json"
+}

@@ -6,7 +6,11 @@ from unittest.mock import patch
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from src.datasets.arc_challenge import _convert_row, load_arc_challenge  # noqa: E402
+from src.datasets.arc_challenge import (  # noqa: E402
+    _convert_row,
+    load_arc_challenge,
+    load_arc_challenge_by_ids,
+)
 
 
 def arc_row(index: int):
@@ -31,6 +35,12 @@ class ArcChallengeTest(unittest.TestCase):
         second = load_arc_challenge(limit=5, seed=7)
         self.assertEqual([sample.id for sample in first], [sample.id for sample in second])
         self.assertEqual(len({sample.id for sample in first}), 5)
+
+    @patch("src.datasets.arc_challenge.load_dataset")
+    def test_frozen_ids_preserve_exact_order(self, mocked_load_dataset):
+        mocked_load_dataset.return_value = [arc_row(index) for index in range(5)]
+        samples = load_arc_challenge_by_ids(["arc-3", "arc-1", "arc-4"])
+        self.assertEqual([sample.id for sample in samples], ["arc-3", "arc-1", "arc-4"])
 
 
 if __name__ == "__main__":

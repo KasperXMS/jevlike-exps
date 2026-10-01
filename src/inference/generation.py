@@ -1,4 +1,5 @@
 import re
+from dataclasses import dataclass
 
 import torch
 
@@ -8,10 +9,85 @@ from ..schema import InferenceResult, MultipleChoiceSample
 from .common import model_inputs, timed
 
 
-def _parse_prediction(text: str, option_count: int) -> int | None:
-    labels = "".join(chr(ord("A") + index) for index in range(option_count))
-    match = re.search(rf"(?<![A-Za-z])([{labels}])(?![A-Za-z])", text.upper())
-    return ord(match.group(1)) - ord("A") if match else None
+@dataclass(frozen=True)
+class ParsedAnswer:
+    prediction: int | None
+    pattern: str | None
+    pattern_regex: str | None
+    matched_text: str | None
+
+
+_ANSWER_PATTERNS = (
+    (
+        "the_correct_answer_is",
+        re.compile(
+            r"(?i:\bthe\s+correct\s+answer\s+is)\s*[:\-]?\s*"
+            r"(?:\*{1,2})?\(?([A-Z])\)?(?:\*{1,2})?"
+            r"(?=[\s.,;:!?)*]|$)"
+        ),
+    ),
+    (
+        "the_answer_is",
+        re.compile(
+            r"(?i:\bthe\s+answer\s+is)\s*[:\-]?\s*"
+            r"(?:\*{1,2})?\(?([A-Z])\)?(?:\*{1,2})?"
+            r"(?=[\s.,;:!?)*]|$)"
+        ),
+    ),
+    (
+        "answer_is",
+        re.compile(
+            r"(?i:\banswer\s+is)\s*[:\-]?\s*"
+            r"(?:\*{1,2})?\(?([A-Z])\)?(?:\*{1,2})?"
+            r"(?=[\s.,;:!?)*]|$)"
+        ),
+    ),
+    (
+        "answer_colon",
+        re.compile(
+            r"(?i:\banswer)\s*:\s*(?:\*{1,2})?\(?([A-Z])\)?"
+            r"(?:\*{1,2})?(?=[\s.,;:!?)*]|$)"
+        ),
+    ),
+    (
+        "option_label",
+        re.compile(
+            r"(?i:\boption)\s+(?:\*{1,2})?\(?([A-Z])\)?"
+            r"(?:\*{1,2})?(?=[\s.,;:!?)*]|$)"
+        ),
+    ),
+    (
+        "parenthesized_label",
+        re.compile(r"^\s*\(([A-Z])\)(?=[\s.,;:!?]|$)"),
+    ),
+    (
+        "label_period",
+        re.compile(r"^\s*([A-Z])\.(?=\s|$)"),
+    ),
+    (
+        "label_because",
+        re.compile(r"^\s*([A-Z])\s+(?i:because)\b"),
+    ),
+    (
+        "bare_label",
+        re.compile(r"^\s*([A-Z])\s*$"),
+    ),
+)
+
+
+def parse_generation_answer(text: str, option_count: int) -> ParsedAnswer:
+    if not 1 <= option_count <= 26:
+        raise ValueError("option_count must be between 1 and 26")
+    for pattern_name, pattern in _ANSWER_PATTERNS:
+        match = pattern.search(text)
+        if match is None:
+            continue
+        prediction = ord(match.group(1)) - ord("A")
+        if prediction < option_count:
+            return ParsedAnswer(
+                prediction, pattern_name, pattern.pattern, match.group(0)
+            )
+    return ParsedAnswer(None, None, None, None)
 
 
 @torch.inference_mode()
@@ -56,7 +132,8 @@ def run_generation(
 
     _, decode_ms = timed(loaded.device, decode)
     generated_text = loaded.tokenizer.decode(generated, skip_special_tokens=True)
-    prediction = _parse_prediction(generated_text, len(sample.options))
+    parsed = parse_generation_answer(generated_text, len(sample.options))
+    prediction = parsed.prediction
 
     return InferenceResult(
         sample_id=sample.id,
@@ -74,6 +151,9 @@ def run_generation(
             "generated_text": generated_text,
             "generated_token_ids": generated,
             "parse_succeeded": prediction is not None,
+            "parser_pattern": parsed.pattern,
+            "parser_pattern_regex": parsed.pattern_regex,
+            "parser_match": parsed.matched_text,
             "prefill_latency_ms": prefill_ms,
             "decode_latency_ms": decode_ms,
             "total_latency_ms": prefill_ms + decode_ms,

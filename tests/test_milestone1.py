@@ -17,6 +17,7 @@ sys.modules.setdefault("transformers", transformers_stub)
 
 from src.inference import (  # noqa: E402
     inspect_label_tokens,
+    run_exact_text_option_likelihood,
     run_generation,
     run_label_logits,
     run_option_likelihood,
@@ -104,14 +105,27 @@ class MilestoneOneTest(unittest.TestCase):
         generation = run_generation(self.loaded, self.sample)
         label_logit = run_label_logits(self.loaded, self.sample)
         likelihood = run_option_likelihood(self.loaded, self.sample)
+        exact_likelihood = run_exact_text_option_likelihood(self.loaded, self.sample)
 
         self.assertEqual(generation.prediction, 2)
         self.assertEqual(label_logit.prediction, 2)
         self.assertEqual(likelihood.prediction, 2)
+        self.assertEqual(exact_likelihood.prediction, 2)
         self.assertTrue(generation.correct)
         self.assertTrue(label_logit.correct)
         self.assertTrue(likelihood.correct)
+        self.assertTrue(exact_likelihood.correct)
         self.assertEqual(likelihood.metadata["option_token_counts"], [1, 1, 1, 1])
+        self.assertEqual(generation.metadata["parser_pattern"], "bare_label")
+        self.assertGreater(label_logit.metadata["candidate_mass"], 0.0)
+        self.assertLessEqual(label_logit.metadata["candidate_mass"], 1.0)
+        self.assertIn("mean", likelihood.metadata["aggregations"])
+        self.assertIn("summed", likelihood.metadata["aggregations"])
+        self.assertTrue(
+            exact_likelihood.prompt.endswith(
+                "Answer with the exact text of the correct option:"
+            )
+        )
 
     def test_multi_token_labels_are_unsupported(self):
         inspection = inspect_label_tokens(

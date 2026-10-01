@@ -1,0 +1,296 @@
+{
+  "datasets": {
+    "arc_challenge": {
+      "fixed_bins": [
+        {
+          "lower": 0.0,
+          "upper": 0.1,
+          "count": 20,
+          "accuracy": 0.55,
+          "mean_restricted_confidence": 0.5163612604141236,
+          "mean_candidate_mass": 0.04547349951171782
+        },
+        {
+          "lower": 0.1,
+          "upper": 0.25,
+          "count": 20,
+          "accuracy": 0.5,
+          "mean_restricted_confidence": 0.5703780442476273,
+          "mean_candidate_mass": 0.17481013387441635
+        },
+        {
+          "lower": 0.25,
+          "upper": 0.5,
+          "count": 30,
+          "accuracy": 0.7,
+          "mean_restricted_confidence": 0.6548458427190781,
+          "mean_candidate_mass": 0.3722438275814056
+        },
+        {
+          "lower": 0.5,
+          "upper": 0.75,
+          "count": 10,
+          "accuracy": 0.4,
+          "mean_restricted_confidence": 0.6092168390750885,
+          "mean_candidate_mass": 0.581717598438263
+        },
+        {
+          "lower": 0.75,
+          "upper": 1.0,
+          "count": 0,
+          "accuracy": null,
+          "mean_restricted_confidence": null,
+          "mean_candidate_mass": null
+        }
+      ],
+      "signal_separation": {
+        "correct": {
+          "count": 46,
+          "restricted_confidence": {
+            "mean": 0.6535300100627153,
+            "median": 0.6704136729240417
+          },
+          "candidate_mass": {
+            "mean": 0.2686524663484939,
+            "median": 0.28759877383708954
+          }
+        },
+        "incorrect": {
+          "count": 34,
+          "restricted_confidence": {
+            "mean": 0.5120573324315688,
+            "median": 0.46145734190940857
+          },
+          "candidate_mass": {
+            "mean": 0.26565147139755185,
+            "median": 0.18958556652069092
+          }
+        },
+        "auroc": {
+          "restricted_confidence": 0.7269820971867008,
+          "candidate_mass": 0.5249360613810742,
+          "confidence_times_mass": 0.5895140664961637
+        }
+      }
+    },
+    "commonsenseqa": {
+      "fixed_bins": [
+        {
+          "lower": 0.0,
+          "upper": 0.1,
+          "count": 11,
+          "accuracy": 0.36363636363636365,
+          "mean_restricted_confidence": 0.43004142425277014,
+          "mean_candidate_mass": 0.06307366177101027
+        },
+        {
+          "lower": 0.1,
+          "upper": 0.25,
+          "count": 35,
+          "accuracy": 0.5428571428571428,
+          "mean_restricted_confidence": 0.5762044497898646,
+          "mean_candidate_mass": 0.17514057712895528
+        },
+        {
+          "lower": 0.25,
+          "upper": 0.5,
+          "count": 31,
+          "accuracy": 0.6129032258064516,
+          "mean_restricted_confidence": 0.5196534837445905,
+          "mean_candidate_mass": 0.32025137351405236
+        },
+        {
+          "lower": 0.5,
+          "upper": 0.75,
+          "count": 3,
+          "accuracy": 1,
+          "mean_restricted_confidence": 0.5461273988087972,
+          "mean_candidate_mass": 0.5528154969215393
+        },
+        {
+          "lower": 0.75,
+          "upper": 1.0,
+          "count": 0,
+          "accuracy": null,
+          "mean_restricted_confidence": null,
+          "mean_candidate_mass": null
+        }
+      ],
+      "signal_separation": {
+        "correct": {
+          "count": 45,
+          "restricted_confidence": {
+            "mean": 0.621095370584064,
+            "median": 0.610707700252533
+          },
+          "candidate_mass": {
+            "mean": 0.24622972270266877,
+            "median": 0.24888692796230316
+          }
+        },
+        "incorrect": {
+          "count": 35,
+          "restricted_confidence": {
+            "mean": 0.41988456930433,
+            "median": 0.3851642608642578
+          },
+          "candidate_mass": {
+            "mean": 0.20941805791641985,
+            "median": 0.19635997712612152
+          }
+        },
+        "auroc": {
+          "restricted_confidence": 0.8031746031746032,
+          "candidate_mass": 0.572063492063492,
+          "confidence_times_mass": 0.7314285714285714
+        }
+      }
+    },
+    "mmlu": {
+      "fixed_bins": [
+        {
+          "lower": 0.0,
+          "upper": 0.1,
+          "count": 92,
+          "accuracy": 0.33695652173913043,
+          "mean_restricted_confidence": 0.4217194111450859,
+          "mean_candidate_mass": 0.04929942322601362
+        },
+        {
+          "lower": 0.1,
+          "upper": 0.25,
+          "count": 115,
+          "accuracy": 0.3391304347826087,
+          "mean_restricted_confidence": 0.4417192145534184,
+          "mean_candidate_mass": 0.17014578062555064
+        },
+        {
+          "lower": 0.25,
+          "upper": 0.5,
+          "count": 85,
+          "accuracy": 0.43529411764705883,
+          "mean_restricted_confidence": 0.5240425884723663,
+          "mean_candidate_mass": 0.3551918720497805
+        },
+        {
+          "lower": 0.5,
+          "upper": 0.75,
+          "count": 56,
+          "accuracy": 0.5535714285714286,
+          "mean_restricted_confidence": 0.5889575864587512,
+          "mean_candidate_mass": 0.6409523370010513
+        },
+        {
+          "lower": 0.75,
+          "upper": 1.0,
+          "count": 52,
+          "accuracy": 0.6730769230769231,
+          "mean_restricted_confidence": 0.5954438419296191,
+          "mean_candidate_mass": 0.8120962748160729
+        }
+      ],
+      "signal_separation": {
+        "correct": {
+          "count": 173,
+          "restricted_confidence": {
+            "mean": 0.588252586780945,
+            "median": 0.5533084273338318
+          },
+          "candidate_mass": {
+            "mean": 0.40463643367408986,
+            "median": 0.3504068851470947
+          }
+        },
+        "incorrect": {
+          "count": 227,
+          "restricted_confidence": {
+            "mean": 0.42430186179766044,
+            "median": 0.4003455936908722
+          },
+          "candidate_mass": {
+            "mean": 0.27495090295083713,
+            "median": 0.19735196232795715
+          }
+        },
+        "auroc": {
+          "restricted_confidence": 0.7469888721957678,
+          "candidate_mass": 0.6293448091466985,
+          "confidence_times_mass": 0.6833795930839551
+        }
+      }
+    }
+  },
+  "pooled": {
+    "fixed_bins": [
+      {
+        "lower": 0.0,
+        "upper": 0.1,
+        "count": 123,
+        "accuracy": 0.37398373983739835,
+        "mean_restricted_confidence": 0.43785257480008816,
+        "mean_candidate_mass": 0.049909164280558714
+      },
+      {
+        "lower": 0.1,
+        "upper": 0.25,
+        "count": 170,
+        "accuracy": 0.4,
+        "mean_restricted_confidence": 0.4845436841249466,
+        "mean_candidate_mass": 0.17172286852317697
+      },
+      {
+        "lower": 0.25,
+        "upper": 0.5,
+        "count": 146,
+        "accuracy": 0.5273972602739726,
+        "mean_restricted_confidence": 0.549988036286341,
+        "mean_candidate_mass": 0.3512768255521173
+      },
+      {
+        "lower": 0.5,
+        "upper": 0.75,
+        "count": 69,
+        "accuracy": 0.5507246376811594,
+        "mean_restricted_confidence": 0.5900315279545991,
+        "mean_candidate_mass": 0.6285355557566104
+      },
+      {
+        "lower": 0.75,
+        "upper": 1.0,
+        "count": 52,
+        "accuracy": 0.6730769230769231,
+        "mean_restricted_confidence": 0.5954438419296191,
+        "mean_candidate_mass": 0.8120962748160729
+      }
+    ],
+    "signal_separation": {
+      "correct": {
+        "count": 264,
+        "restricted_confidence": {
+          "mean": 0.6052248850464821,
+          "median": 0.5797153115272522
+        },
+        "candidate_mass": {
+          "mean": 0.35394111363359226,
+          "median": 0.29160989820957184
+        }
+      },
+      "incorrect": {
+        "count": 296,
+        "restricted_confidence": {
+          "mean": 0.4338595670824115,
+          "median": 0.40963684022426605
+        },
+        "candidate_mass": {
+          "mean": 0.2661339088663226,
+          "median": 0.19456003606319427
+        }
+      },
+      "auroc": {
+        "restricted_confidence": 0.7634751228501229,
+        "candidate_mass": 0.6036931818181818,
+        "confidence_times_mass": 0.6719389844389845
+      }
+    }
+  }
+}

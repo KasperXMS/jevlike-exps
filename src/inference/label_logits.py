@@ -69,6 +69,7 @@ def run_label_logits(
         "label_token_ids": inspection.token_ids,
         "tokenizer_candidates": inspection.candidates,
         "unsupported_reason": inspection.reason,
+        "candidate_mass": None,
     }
     if not inspection.supported or inspection.token_ids is None:
         return InferenceResult(
@@ -86,12 +87,16 @@ def run_label_logits(
 
     inputs = model_inputs(loaded.tokenizer, prompt, loaded.device)
 
-    def score() -> torch.Tensor:
+    def score() -> tuple[torch.Tensor, torch.Tensor]:
         logits = loaded.model(**inputs).logits[0, -1]
         indices = torch.tensor(inspection.token_ids, device=loaded.device)
-        return logits.index_select(0, indices).float()
+        candidate_logits = logits.index_select(0, indices).float()
+        log_candidate_mass = torch.logsumexp(candidate_logits, dim=0) - torch.logsumexp(
+            logits.float(), dim=0
+        )
+        return candidate_logits, log_candidate_mass.exp()
 
-    scores, latency_ms = timed(loaded.device, score)
+    (scores, candidate_mass), latency_ms = timed(loaded.device, score)
     probabilities = scores.softmax(dim=0)
     prediction = int(probabilities.argmax().item())
 
@@ -109,5 +114,8 @@ def run_label_logits(
         probabilities=probabilities.cpu().tolist(),
         confidence=float(probabilities.max().item()),
         latency_ms=latency_ms,
-        metadata=inspection_metadata,
+        metadata={
+            **inspection_metadata,
+            "candidate_mass": float(candidate_mass.item()),
+        },
     )

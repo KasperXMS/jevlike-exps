@@ -1,7 +1,7 @@
 import torch
 
 from ..models import LoadedModel
-from ..prompting import build_prompt
+from ..prompting import build_exact_text_prompt, build_prompt
 from ..schema import InferenceResult, MultipleChoiceSample
 from .common import timed
 
@@ -17,7 +17,35 @@ def _option_token_ids(tokenizer, option: str) -> list[int]:
 def run_option_likelihood(
     loaded: LoadedModel, sample: MultipleChoiceSample
 ) -> InferenceResult:
-    prompt = build_prompt(sample)
+    return _run_option_likelihood(
+        loaded,
+        sample,
+        prompt=build_prompt(sample),
+        mode="option_likelihood_legacy",
+        prompt_variant="legacy_answer_label",
+    )
+
+
+@torch.inference_mode()
+def run_exact_text_option_likelihood(
+    loaded: LoadedModel, sample: MultipleChoiceSample
+) -> InferenceResult:
+    return _run_option_likelihood(
+        loaded,
+        sample,
+        prompt=build_exact_text_prompt(sample),
+        mode="option_likelihood_exact_text",
+        prompt_variant="exact_option_text",
+    )
+
+
+def _run_option_likelihood(
+    loaded: LoadedModel,
+    sample: MultipleChoiceSample,
+    prompt: str,
+    mode: str,
+    prompt_variant: str,
+) -> InferenceResult:
     tokenizer = loaded.tokenizer
     prompt_ids = tokenizer.encode(prompt, add_special_tokens=False)
     option_ids = [_option_token_ids(tokenizer, option) for option in sample.options]
@@ -58,27 +86,46 @@ def run_option_likelihood(
         return raw_sums, raw_sums / lengths
 
     (raw_sums, normalized_scores), latency_ms = timed(loaded.device, score)
-    probabilities = normalized_scores.softmax(dim=0)
-    prediction = int(probabilities.argmax().item())
+    mean_probabilities = normalized_scores.softmax(dim=0)
+    summed_probabilities = raw_sums.softmax(dim=0)
+    mean_prediction = int(mean_probabilities.argmax().item())
+    summed_prediction = int(summed_probabilities.argmax().item())
 
     return InferenceResult(
         sample_id=sample.id,
         dataset=sample.dataset,
         model=loaded.name,
-        mode="option_likelihood",
+        mode=mode,
         prompt=prompt,
         options=sample.options,
         gold_index=sample.gold_index,
-        prediction=prediction,
-        correct=prediction == sample.gold_index,
+        prediction=mean_prediction,
+        correct=mean_prediction == sample.gold_index,
         raw_scores=normalized_scores.cpu().tolist(),
-        probabilities=probabilities.cpu().tolist(),
-        confidence=float(probabilities.max().item()),
+        probabilities=mean_probabilities.cpu().tolist(),
+        confidence=float(mean_probabilities.max().item()),
         latency_ms=latency_ms,
         metadata={
+            "prompt_variant": prompt_variant,
             "summed_log_likelihoods": raw_sums.cpu().tolist(),
             "normalized_log_likelihoods": normalized_scores.cpu().tolist(),
             "option_token_counts": [len(ids) for ids in option_ids],
             "continuation_prefix": " ",
+            "aggregations": {
+                "mean": {
+                    "scores": normalized_scores.cpu().tolist(),
+                    "probabilities": mean_probabilities.cpu().tolist(),
+                    "prediction": mean_prediction,
+                    "correct": mean_prediction == sample.gold_index,
+                    "confidence": float(mean_probabilities.max().item()),
+                },
+                "summed": {
+                    "scores": raw_sums.cpu().tolist(),
+                    "probabilities": summed_probabilities.cpu().tolist(),
+                    "prediction": summed_prediction,
+                    "correct": summed_prediction == sample.gold_index,
+                    "confidence": float(summed_probabilities.max().item()),
+                },
+            },
         },
     )

@@ -5,4 +5,12 @@ trust_remote_code: false
 seed: 42
 generation:
   max_new_tokens: 8
-
+milestone3:
+  mmlu_subjects:
+    - abstract_algebra
+    - computer_science
+    - physics
+    - history
+    - psychology
+  mmlu_limit_per_subject: 100
+  commonsenseqa_limit: 100

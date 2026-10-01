@@ -10,6 +10,7 @@ class MultipleChoiceSample:
     options: list[str]
     gold_index: int
     context: str = ""
+    subject: str = ""
 
     def __post_init__(self) -> None:
         if len(self.options) < 2:
@@ -39,4 +40,3 @@ class InferenceResult:
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
-

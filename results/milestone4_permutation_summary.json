@@ -1,0 +1,872 @@
+{
+  "model": "Qwen/Qwen3-0.6B-Base",
+  "milestone": "4",
+  "datasets": {
+    "arc_challenge": {
+      "sample_count": 100,
+      "ordering_count": 400,
+      "accuracy": {
+        "original": 0.57,
+        "non_original_permutations": 0.5733333333333334,
+        "all_orderings": 0.5725
+      },
+      "semantic_consistency": 0.6166666666666667,
+      "gold_consistency": {
+        "mean_fraction_correct": 0.5725,
+        "all_4_correct_ratio": 0.33,
+        "at_least_3_of_4_correct_ratio": 0.46,
+        "never_correct_ratio": 0.19
+      },
+      "position_preference": {
+        "prediction": {
+          "A": {
+            "count": 78,
+            "eligible_count": 400,
+            "normalized_frequency": 0.195
+          },
+          "B": {
+            "count": 133,
+            "eligible_count": 400,
+            "normalized_frequency": 0.3325
+          },
+          "C": {
+            "count": 99,
+            "eligible_count": 400,
+            "normalized_frequency": 0.2475
+          },
+          "D": {
+            "count": 90,
+            "eligible_count": 400,
+            "normalized_frequency": 0.225
+          }
+        },
+        "gold": {
+          "A": {
+            "count": 83,
+            "eligible_count": 400,
+            "normalized_frequency": 0.2075
+          },
+          "B": {
+            "count": 107,
+            "eligible_count": 400,
+            "normalized_frequency": 0.2675
+          },
+          "C": {
+            "count": 104,
+            "eligible_count": 400,
+            "normalized_frequency": 0.26
+          },
+          "D": {
+            "count": 106,
+            "eligible_count": 400,
+            "normalized_frequency": 0.265
+          }
+        }
+      },
+      "label_conditioned_accuracy": {
+        "A": {
+          "count": 83,
+          "accuracy": 0.5542168674698795
+        },
+        "B": {
+          "count": 107,
+          "accuracy": 0.6728971962616822
+        },
+        "C": {
+          "count": 104,
+          "accuracy": 0.5769230769230769
+        },
+        "D": {
+          "count": 106,
+          "accuracy": 0.4811320754716981
+        }
+      },
+      "probability_stability": {
+        "gold_option": {
+          "mean_probability": 0.46083169665653256,
+          "mean_probability_std": 0.10633465821547225,
+          "median_probability_std": 0.10336050789290215,
+          "mean_probability_range": 0.27039784962311386
+        },
+        "original_predicted_option": {
+          "mean_probability": 0.5035801433585584,
+          "mean_probability_std": 0.11591228400258362,
+          "median_probability_std": 0.11085545417604185,
+          "mean_probability_range": 0.2919817082583904
+        },
+        "all_semantic_options": {
+          "mean_probability_std": 0.07674723461955286,
+          "median_probability_std": 0.06389435691914115,
+          "mean_probability_range": 0.19512876902881543
+        }
+      },
+      "candidate_mass": {
+        "mean": 0.25486751200587604,
+        "median": 0.23539017140865326,
+        "mean_within_sample_std": 0.020829304222854672,
+        "median_within_sample_std": 0.016184638761670964,
+        "mean_within_sample_range": 0.052973629969637843
+      }
+    },
+    "mmlu": {
+      "sample_count": 500,
+      "ordering_count": 2000,
+      "accuracy": {
+        "original": 0.426,
+        "non_original_permutations": 0.46066666666666667,
+        "all_orderings": 0.452
+      },
+      "semantic_consistency": 0.48333333333333334,
+      "gold_consistency": {
+        "mean_fraction_correct": 0.452,
+        "all_4_correct_ratio": 0.202,
+        "at_least_3_of_4_correct_ratio": 0.332,
+        "never_correct_ratio": 0.246
+      },
+      "position_preference": {
+        "prediction": {
+          "A": {
+            "count": 284,
+            "eligible_count": 2000,
+            "normalized_frequency": 0.142
+          },
+          "B": {
+            "count": 908,
+            "eligible_count": 2000,
+            "normalized_frequency": 0.454
+          },
+          "C": {
+            "count": 505,
+            "eligible_count": 2000,
+            "normalized_frequency": 0.2525
+          },
+          "D": {
+            "count": 303,
+            "eligible_count": 2000,
+            "normalized_frequency": 0.1515
+          }
+        },
+        "gold": {
+          "A": {
+            "count": 481,
+            "eligible_count": 2000,
+            "normalized_frequency": 0.2405
+          },
+          "B": {
+            "count": 492,
+            "eligible_count": 2000,
+            "normalized_frequency": 0.246
+          },
+          "C": {
+            "count": 520,
+            "eligible_count": 2000,
+            "normalized_frequency": 0.26
+          },
+          "D": {
+            "count": 507,
+            "eligible_count": 2000,
+            "normalized_frequency": 0.2535
+          }
+        }
+      },
+      "label_conditioned_accuracy": {
+        "A": {
+          "count": 481,
+          "accuracy": 0.3180873180873181
+        },
+        "B": {
+          "count": 492,
+          "accuracy": 0.7052845528455285
+        },
+        "C": {
+          "count": 520,
+          "accuracy": 0.47307692307692306
+        },
+        "D": {
+          "count": 507,
+          "accuracy": 0.3116370808678501
+        }
+      },
+      "probability_stability": {
+        "gold_option": {
+          "mean_probability": 0.37870606007194146,
+          "mean_probability_std": 0.0913347760247862,
+          "median_probability_std": 0.08304879593321868,
+          "mean_probability_range": 0.2299493550080806
+        },
+        "original_predicted_option": {
+          "mean_probability": 0.4145018516667187,
+          "mean_probability_std": 0.10210711911986212,
+          "median_probability_std": 0.09883738339562895,
+          "mean_probability_range": 0.25605348432064057
+        },
+        "all_semantic_options": {
+          "mean_probability_std": 0.07580136744752379,
+          "median_probability_std": 0.07006038858010616,
+          "mean_probability_range": 0.19080429581418867
+        }
+      },
+      "candidate_mass": {
+        "mean": 0.33598851042284517,
+        "median": 0.24302256107330322,
+        "mean_within_sample_std": 0.017493884105299107,
+        "median_within_sample_std": 0.013723456037510864,
+        "mean_within_sample_range": 0.04467960965970997
+      },
+      "subjects": {
+        "abstract_algebra": {
+          "sample_count": 100,
+          "ordering_count": 400,
+          "accuracy": {
+            "original": 0.31,
+            "non_original_permutations": 0.31666666666666665,
+            "all_orderings": 0.315
+          },
+          "semantic_consistency": 0.22333333333333333,
+          "gold_consistency": {
+            "mean_fraction_correct": 0.315,
+            "all_4_correct_ratio": 0.03,
+            "at_least_3_of_4_correct_ratio": 0.08,
+            "never_correct_ratio": 0.24
+          },
+          "position_preference": {
+            "prediction": {
+              "A": {
+                "count": 59,
+                "eligible_count": 400,
+                "normalized_frequency": 0.1475
+              },
+              "B": {
+                "count": 228,
+                "eligible_count": 400,
+                "normalized_frequency": 0.57
+              },
+              "C": {
+                "count": 97,
+                "eligible_count": 400,
+                "normalized_frequency": 0.2425
+              },
+              "D": {
+                "count": 16,
+                "eligible_count": 400,
+                "normalized_frequency": 0.04
+              }
+            },
+            "gold": {
+              "A": {
+                "count": 86,
+                "eligible_count": 400,
+                "normalized_frequency": 0.215
+              },
+              "B": {
+                "count": 107,
+                "eligible_count": 400,
+                "normalized_frequency": 0.2675
+              },
+              "C": {
+                "count": 102,
+                "eligible_count": 400,
+                "normalized_frequency": 0.255
+              },
+              "D": {
+                "count": 105,
+                "eligible_count": 400,
+                "normalized_frequency": 0.2625
+              }
+            }
+          },
+          "label_conditioned_accuracy": {
+            "A": {
+              "count": 86,
+              "accuracy": 0.19767441860465115
+            },
+            "B": {
+              "count": 107,
+              "accuracy": 0.6728971962616822
+            },
+            "C": {
+              "count": 102,
+              "accuracy": 0.30392156862745096
+            },
+            "D": {
+              "count": 105,
+              "accuracy": 0.05714285714285714
+            }
+          },
+          "probability_stability": {
+            "gold_option": {
+              "mean_probability": 0.2790805496275425,
+              "mean_probability_std": 0.09405420191333787,
+              "median_probability_std": 0.08677407336571105,
+              "mean_probability_range": 0.2333749296888709
+            },
+            "original_predicted_option": {
+              "mean_probability": 0.26646580747328696,
+              "mean_probability_std": 0.09756346397998043,
+              "median_probability_std": 0.09883738339562895,
+              "mean_probability_range": 0.24379501834511758
+            },
+            "all_semantic_options": {
+              "mean_probability_std": 0.0850675084234275,
+              "median_probability_std": 0.08180163948929353,
+              "mean_probability_range": 0.2132254081312567
+            }
+          },
+          "candidate_mass": {
+            "mean": 0.13654778620708385,
+            "median": 0.1421613022685051,
+            "mean_within_sample_std": 0.012406253602409736,
+            "median_within_sample_std": 0.011090187029801489,
+            "mean_within_sample_range": 0.031436490216874516
+          }
+        },
+        "computer_science": {
+          "sample_count": 100,
+          "ordering_count": 400,
+          "accuracy": {
+            "original": 0.26,
+            "non_original_permutations": 0.3933333333333333,
+            "all_orderings": 0.36
+          },
+          "semantic_consistency": 0.47333333333333333,
+          "gold_consistency": {
+            "mean_fraction_correct": 0.36,
+            "all_4_correct_ratio": 0.09,
+            "at_least_3_of_4_correct_ratio": 0.25,
+            "never_correct_ratio": 0.33
+          },
+          "position_preference": {
+            "prediction": {
+              "A": {
+                "count": 61,
+                "eligible_count": 400,
+                "normalized_frequency": 0.1525
+              },
+              "B": {
+                "count": 209,
+                "eligible_count": 400,
+                "normalized_frequency": 0.5225
+              },
+              "C": {
+                "count": 102,
+                "eligible_count": 400,
+                "normalized_frequency": 0.255
+              },
+              "D": {
+                "count": 28,
+                "eligible_count": 400,
+                "normalized_frequency": 0.07
+              }
+            },
+            "gold": {
+              "A": {
+                "count": 105,
+                "eligible_count": 400,
+                "normalized_frequency": 0.2625
+              },
+              "B": {
+                "count": 108,
+                "eligible_count": 400,
+                "normalized_frequency": 0.27
+              },
+              "C": {
+                "count": 97,
+                "eligible_count": 400,
+                "normalized_frequency": 0.2425
+              },
+              "D": {
+                "count": 90,
+                "eligible_count": 400,
+                "normalized_frequency": 0.225
+              }
+            }
+          },
+          "label_conditioned_accuracy": {
+            "A": {
+              "count": 105,
+              "accuracy": 0.21904761904761905
+            },
+            "B": {
+              "count": 108,
+              "accuracy": 0.6944444444444444
+            },
+            "C": {
+              "count": 97,
+              "accuracy": 0.38144329896907214
+            },
+            "D": {
+              "count": 90,
+              "accuracy": 0.1
+            }
+          },
+          "probability_stability": {
+            "gold_option": {
+              "mean_probability": 0.32010109968483447,
+              "mean_probability_std": 0.08210423130246146,
+              "median_probability_std": 0.07270919701783547,
+              "mean_probability_range": 0.20700011566281318
+            },
+            "original_predicted_option": {
+              "mean_probability": 0.37434384127147496,
+              "mean_probability_std": 0.09618888948543967,
+              "median_probability_std": 0.08683761890608885,
+              "mean_probability_range": 0.24270509291440248
+            },
+            "all_semantic_options": {
+              "mean_probability_std": 0.07031258887726771,
+              "median_probability_std": 0.06218770746469961,
+              "mean_probability_range": 0.17753966632531956
+            }
+          },
+          "candidate_mass": {
+            "mean": 0.2359115786314942,
+            "median": 0.2052261084318161,
+            "mean_within_sample_std": 0.01840907193266366,
+            "median_within_sample_std": 0.01389871487016003,
+            "mean_within_sample_range": 0.046829644561512396
+          }
+        },
+        "history": {
+          "sample_count": 100,
+          "ordering_count": 400,
+          "accuracy": {
+            "original": 0.62,
+            "non_original_permutations": 0.64,
+            "all_orderings": 0.635
+          },
+          "semantic_consistency": 0.6933333333333334,
+          "gold_consistency": {
+            "mean_fraction_correct": 0.635,
+            "all_4_correct_ratio": 0.44,
+            "at_least_3_of_4_correct_ratio": 0.59,
+            "never_correct_ratio": 0.17
+          },
+          "position_preference": {
+            "prediction": {
+              "A": {
+                "count": 60,
+                "eligible_count": 400,
+                "normalized_frequency": 0.15
+              },
+              "B": {
+                "count": 131,
+                "eligible_count": 400,
+                "normalized_frequency": 0.3275
+              },
+              "C": {
+                "count": 88,
+                "eligible_count": 400,
+                "normalized_frequency": 0.22
+              },
+              "D": {
+                "count": 121,
+                "eligible_count": 400,
+                "normalized_frequency": 0.3025
+              }
+            },
+            "gold": {
+              "A": {
+                "count": 113,
+                "eligible_count": 400,
+                "normalized_frequency": 0.2825
+              },
+              "B": {
+                "count": 98,
+                "eligible_count": 400,
+                "normalized_frequency": 0.245
+              },
+              "C": {
+                "count": 105,
+                "eligible_count": 400,
+                "normalized_frequency": 0.2625
+              },
+              "D": {
+                "count": 84,
+                "eligible_count": 400,
+                "normalized_frequency": 0.21
+              }
+            }
+          },
+          "label_conditioned_accuracy": {
+            "A": {
+              "count": 113,
+              "accuracy": 0.4690265486725664
+            },
+            "B": {
+              "count": 98,
+              "accuracy": 0.7551020408163265
+            },
+            "C": {
+              "count": 105,
+              "accuracy": 0.5904761904761905
+            },
+            "D": {
+              "count": 84,
+              "accuracy": 0.7738095238095238
+            }
+          },
+          "probability_stability": {
+            "gold_option": {
+              "mean_probability": 0.5006838648230769,
+              "mean_probability_std": 0.09208629989916144,
+              "median_probability_std": 0.0867333968493334,
+              "mean_probability_range": 0.23117758718319237
+            },
+            "original_predicted_option": {
+              "mean_probability": 0.5482765645906329,
+              "mean_probability_std": 0.10267246450645934,
+              "median_probability_std": 0.09881776494395517,
+              "mean_probability_range": 0.2561223252862692
+            },
+            "all_semantic_options": {
+              "mean_probability_std": 0.07036626583932555,
+              "median_probability_std": 0.06403454366195638,
+              "mean_probability_range": 0.17705000767979073
+            }
+          },
+          "candidate_mass": {
+            "mean": 0.7495468639582396,
+            "median": 0.7737157046794891,
+            "mean_within_sample_std": 0.01890792860556732,
+            "median_within_sample_std": 0.016019430288359948,
+            "mean_within_sample_range": 0.04862173467874527
+          }
+        },
+        "physics": {
+          "sample_count": 100,
+          "ordering_count": 400,
+          "accuracy": {
+            "original": 0.28,
+            "non_original_permutations": 0.31666666666666665,
+            "all_orderings": 0.3075
+          },
+          "semantic_consistency": 0.37666666666666665,
+          "gold_consistency": {
+            "mean_fraction_correct": 0.3075,
+            "all_4_correct_ratio": 0.06,
+            "at_least_3_of_4_correct_ratio": 0.14,
+            "never_correct_ratio": 0.34
+          },
+          "position_preference": {
+            "prediction": {
+              "A": {
+                "count": 55,
+                "eligible_count": 400,
+                "normalized_frequency": 0.1375
+              },
+              "B": {
+                "count": 203,
+                "eligible_count": 400,
+                "normalized_frequency": 0.5075
+              },
+              "C": {
+                "count": 116,
+                "eligible_count": 400,
+                "normalized_frequency": 0.29
+              },
+              "D": {
+                "count": 26,
+                "eligible_count": 400,
+                "normalized_frequency": 0.065
+              }
+            },
+            "gold": {
+              "A": {
+                "count": 92,
+                "eligible_count": 400,
+                "normalized_frequency": 0.23
+              },
+              "B": {
+                "count": 79,
+                "eligible_count": 400,
+                "normalized_frequency": 0.1975
+              },
+              "C": {
+                "count": 101,
+                "eligible_count": 400,
+                "normalized_frequency": 0.2525
+              },
+              "D": {
+                "count": 128,
+                "eligible_count": 400,
+                "normalized_frequency": 0.32
+              }
+            }
+          },
+          "label_conditioned_accuracy": {
+            "A": {
+              "count": 92,
+              "accuracy": 0.2608695652173913
+            },
+            "B": {
+              "count": 79,
+              "accuracy": 0.6329113924050633
+            },
+            "C": {
+              "count": 101,
+              "accuracy": 0.32673267326732675
+            },
+            "D": {
+              "count": 128,
+              "accuracy": 0.125
+            }
+          },
+          "probability_stability": {
+            "gold_option": {
+              "mean_probability": 0.2905034079123288,
+              "mean_probability_std": 0.0936096623786033,
+              "median_probability_std": 0.08979903724197405,
+              "mean_probability_range": 0.2333403244242072
+            },
+            "original_predicted_option": {
+              "mean_probability": 0.34234370226040484,
+              "mean_probability_std": 0.10815846699111363,
+              "median_probability_std": 0.10603495079827086,
+              "mean_probability_range": 0.26827968515455725
+            },
+            "all_semantic_options": {
+              "mean_probability_std": 0.08402862187902829,
+              "median_probability_std": 0.07966018501438255,
+              "mean_probability_range": 0.2096488492609933
+            }
+          },
+          "candidate_mass": {
+            "mean": 0.1723818688976462,
+            "median": 0.14345064759254456,
+            "mean_within_sample_std": 0.010373775622670197,
+            "median_within_sample_std": 0.007373346801537284,
+            "mean_within_sample_range": 0.026332514205714686
+          }
+        },
+        "psychology": {
+          "sample_count": 100,
+          "ordering_count": 400,
+          "accuracy": {
+            "original": 0.66,
+            "non_original_permutations": 0.6366666666666667,
+            "all_orderings": 0.6425
+          },
+          "semantic_consistency": 0.65,
+          "gold_consistency": {
+            "mean_fraction_correct": 0.6425,
+            "all_4_correct_ratio": 0.39,
+            "at_least_3_of_4_correct_ratio": 0.6,
+            "never_correct_ratio": 0.15
+          },
+          "position_preference": {
+            "prediction": {
+              "A": {
+                "count": 49,
+                "eligible_count": 400,
+                "normalized_frequency": 0.1225
+              },
+              "B": {
+                "count": 137,
+                "eligible_count": 400,
+                "normalized_frequency": 0.3425
+              },
+              "C": {
+                "count": 102,
+                "eligible_count": 400,
+                "normalized_frequency": 0.255
+              },
+              "D": {
+                "count": 112,
+                "eligible_count": 400,
+                "normalized_frequency": 0.28
+              }
+            },
+            "gold": {
+              "A": {
+                "count": 85,
+                "eligible_count": 400,
+                "normalized_frequency": 0.2125
+              },
+              "B": {
+                "count": 100,
+                "eligible_count": 400,
+                "normalized_frequency": 0.25
+              },
+              "C": {
+                "count": 115,
+                "eligible_count": 400,
+                "normalized_frequency": 0.2875
+              },
+              "D": {
+                "count": 100,
+                "eligible_count": 400,
+                "normalized_frequency": 0.25
+              }
+            }
+          },
+          "label_conditioned_accuracy": {
+            "A": {
+              "count": 85,
+              "accuracy": 0.4235294117647059
+            },
+            "B": {
+              "count": 100,
+              "accuracy": 0.76
+            },
+            "C": {
+              "count": 115,
+              "accuracy": 0.7217391304347827
+            },
+            "D": {
+              "count": 100,
+              "accuracy": 0.62
+            }
+          },
+          "probability_stability": {
+            "gold_option": {
+              "mean_probability": 0.5031613783119246,
+              "mean_probability_std": 0.09481948463036688,
+              "median_probability_std": 0.0845206022868735,
+              "mean_probability_range": 0.24485381808131934
+            },
+            "original_predicted_option": {
+              "mean_probability": 0.5410793427377939,
+              "mean_probability_std": 0.1059523106363175,
+              "median_probability_std": 0.10129432702415433,
+              "mean_probability_range": 0.26936529990285635
+            },
+            "all_semantic_options": {
+              "mean_probability_std": 0.06923185221856985,
+              "median_probability_std": 0.05557413993125905,
+              "mean_probability_range": 0.17655754767358303
+            }
+          },
+          "candidate_mass": {
+            "mean": 0.3855544544197619,
+            "median": 0.37279289960861206,
+            "mean_within_sample_std": 0.027372390763184616,
+            "median_within_sample_std": 0.022191346806636657,
+            "mean_within_sample_range": 0.07017766463570296
+          }
+        }
+      }
+    },
+    "commonsenseqa": {
+      "sample_count": 100,
+      "ordering_count": 400,
+      "accuracy": {
+        "original": 0.54,
+        "non_original_permutations": 0.5566666666666666,
+        "all_orderings": 0.5525
+      },
+      "semantic_consistency": 0.59,
+      "gold_consistency": {
+        "mean_fraction_correct": 0.5525,
+        "all_4_correct_ratio": 0.26,
+        "at_least_3_of_4_correct_ratio": 0.47,
+        "never_correct_ratio": 0.18
+      },
+      "position_preference": {
+        "prediction": {
+          "A": {
+            "count": 47,
+            "eligible_count": 400,
+            "normalized_frequency": 0.1175
+          },
+          "B": {
+            "count": 110,
+            "eligible_count": 400,
+            "normalized_frequency": 0.275
+          },
+          "C": {
+            "count": 66,
+            "eligible_count": 400,
+            "normalized_frequency": 0.165
+          },
+          "D": {
+            "count": 146,
+            "eligible_count": 400,
+            "normalized_frequency": 0.365
+          },
+          "E": {
+            "count": 31,
+            "eligible_count": 400,
+            "normalized_frequency": 0.0775
+          }
+        },
+        "gold": {
+          "A": {
+            "count": 78,
+            "eligible_count": 400,
+            "normalized_frequency": 0.195
+          },
+          "B": {
+            "count": 83,
+            "eligible_count": 400,
+            "normalized_frequency": 0.2075
+          },
+          "C": {
+            "count": 79,
+            "eligible_count": 400,
+            "normalized_frequency": 0.1975
+          },
+          "D": {
+            "count": 74,
+            "eligible_count": 400,
+            "normalized_frequency": 0.185
+          },
+          "E": {
+            "count": 86,
+            "eligible_count": 400,
+            "normalized_frequency": 0.215
+          }
+        }
+      },
+      "label_conditioned_accuracy": {
+        "A": {
+          "count": 78,
+          "accuracy": 0.4358974358974359
+        },
+        "B": {
+          "count": 83,
+          "accuracy": 0.7590361445783133
+        },
+        "C": {
+          "count": 79,
+          "accuracy": 0.5443037974683544
+        },
+        "D": {
+          "count": 74,
+          "accuracy": 0.8513513513513513
+        },
+        "E": {
+          "count": 86,
+          "accuracy": 0.20930232558139536
+        }
+      },
+      "probability_stability": {
+        "gold_option": {
+          "mean_probability": 0.41716740309726447,
+          "mean_probability_std": 0.10934176608061791,
+          "median_probability_std": 0.10216355807414756,
+          "mean_probability_range": 0.2788170166872442
+        },
+        "original_predicted_option": {
+          "mean_probability": 0.46242738237371667,
+          "mean_probability_std": 0.12004797333797156,
+          "median_probability_std": 0.12162727070556928,
+          "mean_probability_range": 0.30761102062650025
+        },
+        "all_semantic_options": {
+          "mean_probability_std": 0.0709854995802242,
+          "median_probability_std": 0.05793730632826291,
+          "mean_probability_range": 0.1794220842719078
+        }
+      },
+      "candidate_mass": {
+        "mean": 0.2300322899618186,
+        "median": 0.22429358214139938,
+        "mean_within_sample_std": 0.02214363472728475,
+        "median_within_sample_std": 0.01994213502666773,
+        "mean_within_sample_range": 0.05681720778346062
+      }
+    }
+  },
+  "seed": 42,
+  "manifest": "F:\\Codes\\jevlike-exps\\jev_mvp\\results\\milestone4_permutations.json"
+}
