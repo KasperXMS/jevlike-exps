@@ -1,0 +1,8 @@
+{
+  "model": "Qwen/Qwen3-1.7B-Base",
+  "parameter_count": 1720574976,
+  "parameter_count_source": "loaded model parameters",
+  "nominal_billions": 1.7,
+  "device": "cuda",
+  "dtype": "torch.bfloat16"
+}

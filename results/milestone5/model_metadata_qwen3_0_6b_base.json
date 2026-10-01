@@ -1,0 +1,7 @@
+{
+  "model": "Qwen/Qwen3-0.6B-Base",
+  "parameter_count": 600000000,
+  "parameter_count_source": "nominal model name",
+  "original_source": "results/milestone3_results.jsonl",
+  "permutation_source": "results/milestone4_permutation_results.jsonl"
+}

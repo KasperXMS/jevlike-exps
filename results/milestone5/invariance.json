@@ -1,0 +1,2978 @@
+{
+  "milestone": "5",
+  "models": {
+    "Qwen/Qwen3-0.6B-Base": {
+      "model": "Qwen/Qwen3-0.6B-Base",
+      "milestone": "4",
+      "datasets": {
+        "arc_challenge": {
+          "sample_count": 100,
+          "ordering_count": 400,
+          "accuracy": {
+            "original": 0.57,
+            "non_original_permutations": 0.5733333333333334,
+            "all_orderings": 0.5725
+          },
+          "semantic_consistency": 0.6166666666666667,
+          "gold_consistency": {
+            "mean_fraction_correct": 0.5725,
+            "all_4_correct_ratio": 0.33,
+            "at_least_3_of_4_correct_ratio": 0.46,
+            "never_correct_ratio": 0.19
+          },
+          "position_preference": {
+            "prediction": {
+              "A": {
+                "count": 78,
+                "eligible_count": 400,
+                "normalized_frequency": 0.195
+              },
+              "B": {
+                "count": 133,
+                "eligible_count": 400,
+                "normalized_frequency": 0.3325
+              },
+              "C": {
+                "count": 99,
+                "eligible_count": 400,
+                "normalized_frequency": 0.2475
+              },
+              "D": {
+                "count": 90,
+                "eligible_count": 400,
+                "normalized_frequency": 0.225
+              }
+            },
+            "gold": {
+              "A": {
+                "count": 83,
+                "eligible_count": 400,
+                "normalized_frequency": 0.2075
+              },
+              "B": {
+                "count": 107,
+                "eligible_count": 400,
+                "normalized_frequency": 0.2675
+              },
+              "C": {
+                "count": 104,
+                "eligible_count": 400,
+                "normalized_frequency": 0.26
+              },
+              "D": {
+                "count": 106,
+                "eligible_count": 400,
+                "normalized_frequency": 0.265
+              }
+            }
+          },
+          "label_conditioned_accuracy": {
+            "A": {
+              "count": 83,
+              "accuracy": 0.5542168674698795
+            },
+            "B": {
+              "count": 107,
+              "accuracy": 0.6728971962616822
+            },
+            "C": {
+              "count": 104,
+              "accuracy": 0.5769230769230769
+            },
+            "D": {
+              "count": 106,
+              "accuracy": 0.4811320754716981
+            }
+          },
+          "probability_stability": {
+            "gold_option": {
+              "mean_probability": 0.46083169665653256,
+              "mean_probability_std": 0.10633465821547225,
+              "median_probability_std": 0.10336050789290215,
+              "mean_probability_range": 0.27039784962311386,
+              "median_probability_range": 0.2575984299182892
+            },
+            "original_predicted_option": {
+              "mean_probability": 0.5035801433585584,
+              "mean_probability_std": 0.11591228400258362,
+              "median_probability_std": 0.11085545417604185,
+              "mean_probability_range": 0.2919817082583904,
+              "median_probability_range": 0.2798696756362915
+            },
+            "all_semantic_options": {
+              "mean_probability_std": 0.07674723461955286,
+              "median_probability_std": 0.06389435691914115,
+              "mean_probability_range": 0.19512876902881543,
+              "median_probability_range": 0.16261618584394455
+            }
+          },
+          "candidate_mass": {
+            "mean": 0.25486751200587604,
+            "median": 0.23539017140865326,
+            "mean_within_sample_std": 0.020829304222854672,
+            "median_within_sample_std": 0.016184638761670964,
+            "mean_within_sample_range": 0.052973629969637843
+          },
+          "flip_rates": {
+            "correct_to_wrong": {
+              "count": 42,
+              "opportunities": 171,
+              "rate": 0.24561403508771928
+            },
+            "wrong_to_correct": {
+              "count": 43,
+              "opportunities": 129,
+              "rate": 0.3333333333333333
+            }
+          }
+        },
+        "mmlu": {
+          "sample_count": 500,
+          "ordering_count": 2000,
+          "accuracy": {
+            "original": 0.426,
+            "non_original_permutations": 0.46066666666666667,
+            "all_orderings": 0.452
+          },
+          "semantic_consistency": 0.48333333333333334,
+          "gold_consistency": {
+            "mean_fraction_correct": 0.452,
+            "all_4_correct_ratio": 0.202,
+            "at_least_3_of_4_correct_ratio": 0.332,
+            "never_correct_ratio": 0.246
+          },
+          "position_preference": {
+            "prediction": {
+              "A": {
+                "count": 284,
+                "eligible_count": 2000,
+                "normalized_frequency": 0.142
+              },
+              "B": {
+                "count": 908,
+                "eligible_count": 2000,
+                "normalized_frequency": 0.454
+              },
+              "C": {
+                "count": 505,
+                "eligible_count": 2000,
+                "normalized_frequency": 0.2525
+              },
+              "D": {
+                "count": 303,
+                "eligible_count": 2000,
+                "normalized_frequency": 0.1515
+              }
+            },
+            "gold": {
+              "A": {
+                "count": 481,
+                "eligible_count": 2000,
+                "normalized_frequency": 0.2405
+              },
+              "B": {
+                "count": 492,
+                "eligible_count": 2000,
+                "normalized_frequency": 0.246
+              },
+              "C": {
+                "count": 520,
+                "eligible_count": 2000,
+                "normalized_frequency": 0.26
+              },
+              "D": {
+                "count": 507,
+                "eligible_count": 2000,
+                "normalized_frequency": 0.2535
+              }
+            }
+          },
+          "label_conditioned_accuracy": {
+            "A": {
+              "count": 481,
+              "accuracy": 0.3180873180873181
+            },
+            "B": {
+              "count": 492,
+              "accuracy": 0.7052845528455285
+            },
+            "C": {
+              "count": 520,
+              "accuracy": 0.47307692307692306
+            },
+            "D": {
+              "count": 507,
+              "accuracy": 0.3116370808678501
+            }
+          },
+          "probability_stability": {
+            "gold_option": {
+              "mean_probability": 0.37870606007194146,
+              "mean_probability_std": 0.0913347760247862,
+              "median_probability_std": 0.08304879593321868,
+              "mean_probability_range": 0.2299493550080806,
+              "median_probability_range": 0.20933302864432335
+            },
+            "original_predicted_option": {
+              "mean_probability": 0.4145018516667187,
+              "mean_probability_std": 0.10210711911986212,
+              "median_probability_std": 0.09883738339562895,
+              "mean_probability_range": 0.25605348432064057,
+              "median_probability_range": 0.25189879909157753
+            },
+            "all_semantic_options": {
+              "mean_probability_std": 0.07580136744752379,
+              "median_probability_std": 0.07006038858010616,
+              "mean_probability_range": 0.19080429581418867,
+              "median_probability_range": 0.17781220376491547
+            }
+          },
+          "candidate_mass": {
+            "mean": 0.33598851042284517,
+            "median": 0.24302256107330322,
+            "mean_within_sample_std": 0.017493884105299107,
+            "median_within_sample_std": 0.013723456037510864,
+            "mean_within_sample_range": 0.04467960965970997
+          },
+          "subjects": {
+            "abstract_algebra": {
+              "sample_count": 100,
+              "ordering_count": 400,
+              "accuracy": {
+                "original": 0.31,
+                "non_original_permutations": 0.31666666666666665,
+                "all_orderings": 0.315
+              },
+              "semantic_consistency": 0.22333333333333333,
+              "gold_consistency": {
+                "mean_fraction_correct": 0.315,
+                "all_4_correct_ratio": 0.03,
+                "at_least_3_of_4_correct_ratio": 0.08,
+                "never_correct_ratio": 0.24
+              },
+              "position_preference": {
+                "prediction": {
+                  "A": {
+                    "count": 59,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.1475
+                  },
+                  "B": {
+                    "count": 228,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.57
+                  },
+                  "C": {
+                    "count": 97,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.2425
+                  },
+                  "D": {
+                    "count": 16,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.04
+                  }
+                },
+                "gold": {
+                  "A": {
+                    "count": 86,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.215
+                  },
+                  "B": {
+                    "count": 107,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.2675
+                  },
+                  "C": {
+                    "count": 102,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.255
+                  },
+                  "D": {
+                    "count": 105,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.2625
+                  }
+                }
+              },
+              "label_conditioned_accuracy": {
+                "A": {
+                  "count": 86,
+                  "accuracy": 0.19767441860465115
+                },
+                "B": {
+                  "count": 107,
+                  "accuracy": 0.6728971962616822
+                },
+                "C": {
+                  "count": 102,
+                  "accuracy": 0.30392156862745096
+                },
+                "D": {
+                  "count": 105,
+                  "accuracy": 0.05714285714285714
+                }
+              },
+              "probability_stability": {
+                "gold_option": {
+                  "mean_probability": 0.2790805496275425,
+                  "mean_probability_std": 0.09405420191333787,
+                  "median_probability_std": 0.08677407336571105,
+                  "mean_probability_range": 0.2333749296888709,
+                  "median_probability_range": 0.2185259461402893
+                },
+                "original_predicted_option": {
+                  "mean_probability": 0.26646580747328696,
+                  "mean_probability_std": 0.09756346397998043,
+                  "median_probability_std": 0.09883738339562895,
+                  "mean_probability_range": 0.24379501834511758,
+                  "median_probability_range": 0.2456347793340683
+                },
+                "all_semantic_options": {
+                  "mean_probability_std": 0.0850675084234275,
+                  "median_probability_std": 0.08180163948929353,
+                  "mean_probability_range": 0.2132254081312567,
+                  "median_probability_range": 0.203505028039217
+                }
+              },
+              "candidate_mass": {
+                "mean": 0.13654778620708385,
+                "median": 0.1421613022685051,
+                "mean_within_sample_std": 0.012406253602409736,
+                "median_within_sample_std": 0.011090187029801489,
+                "mean_within_sample_range": 0.031436490216874516
+              },
+              "flip_rates": {
+                "correct_to_wrong": {
+                  "count": 71,
+                  "opportunities": 93,
+                  "rate": 0.7634408602150538
+                },
+                "wrong_to_correct": {
+                  "count": 73,
+                  "opportunities": 207,
+                  "rate": 0.3526570048309179
+                }
+              }
+            },
+            "computer_science": {
+              "sample_count": 100,
+              "ordering_count": 400,
+              "accuracy": {
+                "original": 0.26,
+                "non_original_permutations": 0.3933333333333333,
+                "all_orderings": 0.36
+              },
+              "semantic_consistency": 0.47333333333333333,
+              "gold_consistency": {
+                "mean_fraction_correct": 0.36,
+                "all_4_correct_ratio": 0.09,
+                "at_least_3_of_4_correct_ratio": 0.25,
+                "never_correct_ratio": 0.33
+              },
+              "position_preference": {
+                "prediction": {
+                  "A": {
+                    "count": 61,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.1525
+                  },
+                  "B": {
+                    "count": 209,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.5225
+                  },
+                  "C": {
+                    "count": 102,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.255
+                  },
+                  "D": {
+                    "count": 28,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.07
+                  }
+                },
+                "gold": {
+                  "A": {
+                    "count": 105,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.2625
+                  },
+                  "B": {
+                    "count": 108,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.27
+                  },
+                  "C": {
+                    "count": 97,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.2425
+                  },
+                  "D": {
+                    "count": 90,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.225
+                  }
+                }
+              },
+              "label_conditioned_accuracy": {
+                "A": {
+                  "count": 105,
+                  "accuracy": 0.21904761904761905
+                },
+                "B": {
+                  "count": 108,
+                  "accuracy": 0.6944444444444444
+                },
+                "C": {
+                  "count": 97,
+                  "accuracy": 0.38144329896907214
+                },
+                "D": {
+                  "count": 90,
+                  "accuracy": 0.1
+                }
+              },
+              "probability_stability": {
+                "gold_option": {
+                  "mean_probability": 0.32010109968483447,
+                  "mean_probability_std": 0.08210423130246146,
+                  "median_probability_std": 0.07270919701783547,
+                  "mean_probability_range": 0.20700011566281318,
+                  "median_probability_range": 0.18531306460499763
+                },
+                "original_predicted_option": {
+                  "mean_probability": 0.37434384127147496,
+                  "mean_probability_std": 0.09618888948543967,
+                  "median_probability_std": 0.08683761890608885,
+                  "mean_probability_range": 0.24270509291440248,
+                  "median_probability_range": 0.2212006226181984
+                },
+                "all_semantic_options": {
+                  "mean_probability_std": 0.07031258887726771,
+                  "median_probability_std": 0.06218770746469961,
+                  "mean_probability_range": 0.17753966632531956,
+                  "median_probability_range": 0.16040502861142159
+                }
+              },
+              "candidate_mass": {
+                "mean": 0.2359115786314942,
+                "median": 0.2052261084318161,
+                "mean_within_sample_std": 0.01840907193266366,
+                "median_within_sample_std": 0.01389871487016003,
+                "mean_within_sample_range": 0.046829644561512396
+              },
+              "flip_rates": {
+                "correct_to_wrong": {
+                  "count": 29,
+                  "opportunities": 78,
+                  "rate": 0.3717948717948718
+                },
+                "wrong_to_correct": {
+                  "count": 69,
+                  "opportunities": 222,
+                  "rate": 0.3108108108108108
+                }
+              }
+            },
+            "history": {
+              "sample_count": 100,
+              "ordering_count": 400,
+              "accuracy": {
+                "original": 0.62,
+                "non_original_permutations": 0.64,
+                "all_orderings": 0.635
+              },
+              "semantic_consistency": 0.6933333333333334,
+              "gold_consistency": {
+                "mean_fraction_correct": 0.635,
+                "all_4_correct_ratio": 0.44,
+                "at_least_3_of_4_correct_ratio": 0.59,
+                "never_correct_ratio": 0.17
+              },
+              "position_preference": {
+                "prediction": {
+                  "A": {
+                    "count": 60,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.15
+                  },
+                  "B": {
+                    "count": 131,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.3275
+                  },
+                  "C": {
+                    "count": 88,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.22
+                  },
+                  "D": {
+                    "count": 121,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.3025
+                  }
+                },
+                "gold": {
+                  "A": {
+                    "count": 113,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.2825
+                  },
+                  "B": {
+                    "count": 98,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.245
+                  },
+                  "C": {
+                    "count": 105,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.2625
+                  },
+                  "D": {
+                    "count": 84,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.21
+                  }
+                }
+              },
+              "label_conditioned_accuracy": {
+                "A": {
+                  "count": 113,
+                  "accuracy": 0.4690265486725664
+                },
+                "B": {
+                  "count": 98,
+                  "accuracy": 0.7551020408163265
+                },
+                "C": {
+                  "count": 105,
+                  "accuracy": 0.5904761904761905
+                },
+                "D": {
+                  "count": 84,
+                  "accuracy": 0.7738095238095238
+                }
+              },
+              "probability_stability": {
+                "gold_option": {
+                  "mean_probability": 0.5006838648230769,
+                  "mean_probability_std": 0.09208629989916144,
+                  "median_probability_std": 0.0867333968493334,
+                  "mean_probability_range": 0.23117758718319237,
+                  "median_probability_range": 0.2272259071469307
+                },
+                "original_predicted_option": {
+                  "mean_probability": 0.5482765645906329,
+                  "mean_probability_std": 0.10267246450645934,
+                  "median_probability_std": 0.09881776494395517,
+                  "mean_probability_range": 0.2561223252862692,
+                  "median_probability_range": 0.25935613736510277
+                },
+                "all_semantic_options": {
+                  "mean_probability_std": 0.07036626583932555,
+                  "median_probability_std": 0.06403454366195638,
+                  "mean_probability_range": 0.17705000767979073,
+                  "median_probability_range": 0.15750268381088972
+                }
+              },
+              "candidate_mass": {
+                "mean": 0.7495468639582396,
+                "median": 0.7737157046794891,
+                "mean_within_sample_std": 0.01890792860556732,
+                "median_within_sample_std": 0.016019430288359948,
+                "mean_within_sample_range": 0.04862173467874527
+              },
+              "flip_rates": {
+                "correct_to_wrong": {
+                  "count": 27,
+                  "opportunities": 186,
+                  "rate": 0.14516129032258066
+                },
+                "wrong_to_correct": {
+                  "count": 33,
+                  "opportunities": 114,
+                  "rate": 0.2894736842105263
+                }
+              }
+            },
+            "physics": {
+              "sample_count": 100,
+              "ordering_count": 400,
+              "accuracy": {
+                "original": 0.28,
+                "non_original_permutations": 0.31666666666666665,
+                "all_orderings": 0.3075
+              },
+              "semantic_consistency": 0.37666666666666665,
+              "gold_consistency": {
+                "mean_fraction_correct": 0.3075,
+                "all_4_correct_ratio": 0.06,
+                "at_least_3_of_4_correct_ratio": 0.14,
+                "never_correct_ratio": 0.34
+              },
+              "position_preference": {
+                "prediction": {
+                  "A": {
+                    "count": 55,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.1375
+                  },
+                  "B": {
+                    "count": 203,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.5075
+                  },
+                  "C": {
+                    "count": 116,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.29
+                  },
+                  "D": {
+                    "count": 26,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.065
+                  }
+                },
+                "gold": {
+                  "A": {
+                    "count": 92,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.23
+                  },
+                  "B": {
+                    "count": 79,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.1975
+                  },
+                  "C": {
+                    "count": 101,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.2525
+                  },
+                  "D": {
+                    "count": 128,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.32
+                  }
+                }
+              },
+              "label_conditioned_accuracy": {
+                "A": {
+                  "count": 92,
+                  "accuracy": 0.2608695652173913
+                },
+                "B": {
+                  "count": 79,
+                  "accuracy": 0.6329113924050633
+                },
+                "C": {
+                  "count": 101,
+                  "accuracy": 0.32673267326732675
+                },
+                "D": {
+                  "count": 128,
+                  "accuracy": 0.125
+                }
+              },
+              "probability_stability": {
+                "gold_option": {
+                  "mean_probability": 0.2905034079123288,
+                  "mean_probability_std": 0.0936096623786033,
+                  "median_probability_std": 0.08979903724197405,
+                  "mean_probability_range": 0.2333403244242072,
+                  "median_probability_range": 0.22024478763341904
+                },
+                "original_predicted_option": {
+                  "mean_probability": 0.34234370226040484,
+                  "mean_probability_std": 0.10815846699111363,
+                  "median_probability_std": 0.10603495079827086,
+                  "mean_probability_range": 0.26827968515455725,
+                  "median_probability_range": 0.26198773458600044
+                },
+                "all_semantic_options": {
+                  "mean_probability_std": 0.08402862187902829,
+                  "median_probability_std": 0.07966018501438255,
+                  "mean_probability_range": 0.2096488492609933,
+                  "median_probability_range": 0.19639414176344872
+                }
+              },
+              "candidate_mass": {
+                "mean": 0.1723818688976462,
+                "median": 0.14345064759254456,
+                "mean_within_sample_std": 0.010373775622670197,
+                "median_within_sample_std": 0.007373346801537284,
+                "mean_within_sample_range": 0.026332514205714686
+              },
+              "flip_rates": {
+                "correct_to_wrong": {
+                  "count": 45,
+                  "opportunities": 84,
+                  "rate": 0.5357142857142857
+                },
+                "wrong_to_correct": {
+                  "count": 56,
+                  "opportunities": 216,
+                  "rate": 0.25925925925925924
+                }
+              }
+            },
+            "psychology": {
+              "sample_count": 100,
+              "ordering_count": 400,
+              "accuracy": {
+                "original": 0.66,
+                "non_original_permutations": 0.6366666666666667,
+                "all_orderings": 0.6425
+              },
+              "semantic_consistency": 0.65,
+              "gold_consistency": {
+                "mean_fraction_correct": 0.6425,
+                "all_4_correct_ratio": 0.39,
+                "at_least_3_of_4_correct_ratio": 0.6,
+                "never_correct_ratio": 0.15
+              },
+              "position_preference": {
+                "prediction": {
+                  "A": {
+                    "count": 49,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.1225
+                  },
+                  "B": {
+                    "count": 137,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.3425
+                  },
+                  "C": {
+                    "count": 102,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.255
+                  },
+                  "D": {
+                    "count": 112,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.28
+                  }
+                },
+                "gold": {
+                  "A": {
+                    "count": 85,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.2125
+                  },
+                  "B": {
+                    "count": 100,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.25
+                  },
+                  "C": {
+                    "count": 115,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.2875
+                  },
+                  "D": {
+                    "count": 100,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.25
+                  }
+                }
+              },
+              "label_conditioned_accuracy": {
+                "A": {
+                  "count": 85,
+                  "accuracy": 0.4235294117647059
+                },
+                "B": {
+                  "count": 100,
+                  "accuracy": 0.76
+                },
+                "C": {
+                  "count": 115,
+                  "accuracy": 0.7217391304347827
+                },
+                "D": {
+                  "count": 100,
+                  "accuracy": 0.62
+                }
+              },
+              "probability_stability": {
+                "gold_option": {
+                  "mean_probability": 0.5031613783119246,
+                  "mean_probability_std": 0.09481948463036688,
+                  "median_probability_std": 0.0845206022868735,
+                  "mean_probability_range": 0.24485381808131934,
+                  "median_probability_range": 0.21306245774030685
+                },
+                "original_predicted_option": {
+                  "mean_probability": 0.5410793427377939,
+                  "mean_probability_std": 0.1059523106363175,
+                  "median_probability_std": 0.10129432702415433,
+                  "mean_probability_range": 0.26936529990285635,
+                  "median_probability_range": 0.25738799571990967
+                },
+                "all_semantic_options": {
+                  "mean_probability_std": 0.06923185221856985,
+                  "median_probability_std": 0.05557413993125905,
+                  "mean_probability_range": 0.17655754767358303,
+                  "median_probability_range": 0.14671431202441454
+                }
+              },
+              "candidate_mass": {
+                "mean": 0.3855544544197619,
+                "median": 0.37279289960861206,
+                "mean_within_sample_std": 0.027372390763184616,
+                "median_within_sample_std": 0.022191346806636657,
+                "mean_within_sample_range": 0.07017766463570296
+              },
+              "flip_rates": {
+                "correct_to_wrong": {
+                  "count": 44,
+                  "opportunities": 198,
+                  "rate": 0.2222222222222222
+                },
+                "wrong_to_correct": {
+                  "count": 37,
+                  "opportunities": 102,
+                  "rate": 0.3627450980392157
+                }
+              }
+            }
+          },
+          "flip_rates": {
+            "correct_to_wrong": {
+              "count": 216,
+              "opportunities": 639,
+              "rate": 0.3380281690140845
+            },
+            "wrong_to_correct": {
+              "count": 268,
+              "opportunities": 861,
+              "rate": 0.31126596980255516
+            }
+          }
+        },
+        "commonsenseqa": {
+          "sample_count": 100,
+          "ordering_count": 400,
+          "accuracy": {
+            "original": 0.54,
+            "non_original_permutations": 0.5566666666666666,
+            "all_orderings": 0.5525
+          },
+          "semantic_consistency": 0.59,
+          "gold_consistency": {
+            "mean_fraction_correct": 0.5525,
+            "all_4_correct_ratio": 0.26,
+            "at_least_3_of_4_correct_ratio": 0.47,
+            "never_correct_ratio": 0.18
+          },
+          "position_preference": {
+            "prediction": {
+              "A": {
+                "count": 47,
+                "eligible_count": 400,
+                "normalized_frequency": 0.1175
+              },
+              "B": {
+                "count": 110,
+                "eligible_count": 400,
+                "normalized_frequency": 0.275
+              },
+              "C": {
+                "count": 66,
+                "eligible_count": 400,
+                "normalized_frequency": 0.165
+              },
+              "D": {
+                "count": 146,
+                "eligible_count": 400,
+                "normalized_frequency": 0.365
+              },
+              "E": {
+                "count": 31,
+                "eligible_count": 400,
+                "normalized_frequency": 0.0775
+              }
+            },
+            "gold": {
+              "A": {
+                "count": 78,
+                "eligible_count": 400,
+                "normalized_frequency": 0.195
+              },
+              "B": {
+                "count": 83,
+                "eligible_count": 400,
+                "normalized_frequency": 0.2075
+              },
+              "C": {
+                "count": 79,
+                "eligible_count": 400,
+                "normalized_frequency": 0.1975
+              },
+              "D": {
+                "count": 74,
+                "eligible_count": 400,
+                "normalized_frequency": 0.185
+              },
+              "E": {
+                "count": 86,
+                "eligible_count": 400,
+                "normalized_frequency": 0.215
+              }
+            }
+          },
+          "label_conditioned_accuracy": {
+            "A": {
+              "count": 78,
+              "accuracy": 0.4358974358974359
+            },
+            "B": {
+              "count": 83,
+              "accuracy": 0.7590361445783133
+            },
+            "C": {
+              "count": 79,
+              "accuracy": 0.5443037974683544
+            },
+            "D": {
+              "count": 74,
+              "accuracy": 0.8513513513513513
+            },
+            "E": {
+              "count": 86,
+              "accuracy": 0.20930232558139536
+            }
+          },
+          "probability_stability": {
+            "gold_option": {
+              "mean_probability": 0.41716740309726447,
+              "mean_probability_std": 0.10934176608061791,
+              "median_probability_std": 0.10216355807414756,
+              "mean_probability_range": 0.2788170166872442,
+              "median_probability_range": 0.25217922031879425
+            },
+            "original_predicted_option": {
+              "mean_probability": 0.46242738237371667,
+              "mean_probability_std": 0.12004797333797156,
+              "median_probability_std": 0.12162727070556928,
+              "mean_probability_range": 0.30761102062650025,
+              "median_probability_range": 0.3230140581727028
+            },
+            "all_semantic_options": {
+              "mean_probability_std": 0.0709854995802242,
+              "median_probability_std": 0.05793730632826291,
+              "mean_probability_range": 0.1794220842719078,
+              "median_probability_range": 0.14592092856764793
+            }
+          },
+          "candidate_mass": {
+            "mean": 0.2300322899618186,
+            "median": 0.22429358214139938,
+            "mean_within_sample_std": 0.02214363472728475,
+            "median_within_sample_std": 0.01994213502666773,
+            "mean_within_sample_range": 0.05681720778346062
+          },
+          "flip_rates": {
+            "correct_to_wrong": {
+              "count": 42,
+              "opportunities": 162,
+              "rate": 0.25925925925925924
+            },
+            "wrong_to_correct": {
+              "count": 47,
+              "opportunities": 138,
+              "rate": 0.34057971014492755
+            }
+          }
+        }
+      },
+      "parameter_count": 600000000
+    },
+    "Qwen/Qwen3-1.7B-Base": {
+      "model": "Qwen/Qwen3-1.7B-Base",
+      "milestone": "4",
+      "datasets": {
+        "arc_challenge": {
+          "sample_count": 100,
+          "ordering_count": 400,
+          "accuracy": {
+            "original": 0.77,
+            "non_original_permutations": 0.7333333333333333,
+            "all_orderings": 0.7425
+          },
+          "semantic_consistency": 0.7966666666666666,
+          "gold_consistency": {
+            "mean_fraction_correct": 0.7425,
+            "all_4_correct_ratio": 0.63,
+            "at_least_3_of_4_correct_ratio": 0.7,
+            "never_correct_ratio": 0.13
+          },
+          "position_preference": {
+            "prediction": {
+              "A": {
+                "count": 92,
+                "eligible_count": 400,
+                "normalized_frequency": 0.23
+              },
+              "B": {
+                "count": 108,
+                "eligible_count": 400,
+                "normalized_frequency": 0.27
+              },
+              "C": {
+                "count": 115,
+                "eligible_count": 400,
+                "normalized_frequency": 0.2875
+              },
+              "D": {
+                "count": 85,
+                "eligible_count": 400,
+                "normalized_frequency": 0.2125
+              }
+            },
+            "gold": {
+              "A": {
+                "count": 83,
+                "eligible_count": 400,
+                "normalized_frequency": 0.2075
+              },
+              "B": {
+                "count": 107,
+                "eligible_count": 400,
+                "normalized_frequency": 0.2675
+              },
+              "C": {
+                "count": 104,
+                "eligible_count": 400,
+                "normalized_frequency": 0.26
+              },
+              "D": {
+                "count": 106,
+                "eligible_count": 400,
+                "normalized_frequency": 0.265
+              }
+            }
+          },
+          "label_conditioned_accuracy": {
+            "A": {
+              "count": 83,
+              "accuracy": 0.7590361445783133
+            },
+            "B": {
+              "count": 107,
+              "accuracy": 0.7476635514018691
+            },
+            "C": {
+              "count": 104,
+              "accuracy": 0.8173076923076923
+            },
+            "D": {
+              "count": 106,
+              "accuracy": 0.6509433962264151
+            }
+          },
+          "probability_stability": {
+            "gold_option": {
+              "mean_probability": 0.6509639834426344,
+              "mean_probability_std": 0.07357544727900503,
+              "median_probability_std": 0.06504601403645505,
+              "mean_probability_range": 0.18888751581311225,
+              "median_probability_range": 0.17138409987092018
+            },
+            "original_predicted_option": {
+              "mean_probability": 0.6961041917838157,
+              "mean_probability_std": 0.08214409851166929,
+              "median_probability_std": 0.07535422349574053,
+              "mean_probability_range": 0.20929369486868382,
+              "median_probability_range": 0.19245001673698425
+            },
+            "all_semantic_options": {
+              "mean_probability_std": 0.048232914849274854,
+              "median_probability_std": 0.02833379744791422,
+              "mean_probability_range": 0.12250607843925536,
+              "median_probability_range": 0.07363790087401867
+            }
+          },
+          "candidate_mass": {
+            "mean": 0.7889133834093809,
+            "median": 0.8081727623939514,
+            "mean_within_sample_std": 0.015796177125735753,
+            "median_within_sample_std": 0.013335168190262309,
+            "mean_within_sample_range": 0.040886321365833284
+          },
+          "flip_rates": {
+            "correct_to_wrong": {
+              "count": 27,
+              "opportunities": 231,
+              "rate": 0.11688311688311688
+            },
+            "wrong_to_correct": {
+              "count": 16,
+              "opportunities": 69,
+              "rate": 0.2318840579710145
+            }
+          }
+        },
+        "mmlu": {
+          "sample_count": 500,
+          "ordering_count": 2000,
+          "accuracy": {
+            "original": 0.566,
+            "non_original_permutations": 0.5586666666666666,
+            "all_orderings": 0.5605
+          },
+          "semantic_consistency": 0.6373333333333333,
+          "gold_consistency": {
+            "mean_fraction_correct": 0.5605,
+            "all_4_correct_ratio": 0.374,
+            "at_least_3_of_4_correct_ratio": 0.468,
+            "never_correct_ratio": 0.214
+          },
+          "position_preference": {
+            "prediction": {
+              "A": {
+                "count": 380,
+                "eligible_count": 2000,
+                "normalized_frequency": 0.19
+              },
+              "B": {
+                "count": 595,
+                "eligible_count": 2000,
+                "normalized_frequency": 0.2975
+              },
+              "C": {
+                "count": 632,
+                "eligible_count": 2000,
+                "normalized_frequency": 0.316
+              },
+              "D": {
+                "count": 393,
+                "eligible_count": 2000,
+                "normalized_frequency": 0.1965
+              }
+            },
+            "gold": {
+              "A": {
+                "count": 481,
+                "eligible_count": 2000,
+                "normalized_frequency": 0.2405
+              },
+              "B": {
+                "count": 492,
+                "eligible_count": 2000,
+                "normalized_frequency": 0.246
+              },
+              "C": {
+                "count": 520,
+                "eligible_count": 2000,
+                "normalized_frequency": 0.26
+              },
+              "D": {
+                "count": 507,
+                "eligible_count": 2000,
+                "normalized_frequency": 0.2535
+              }
+            }
+          },
+          "label_conditioned_accuracy": {
+            "A": {
+              "count": 481,
+              "accuracy": 0.5322245322245323
+            },
+            "B": {
+              "count": 492,
+              "accuracy": 0.6178861788617886
+            },
+            "C": {
+              "count": 520,
+              "accuracy": 0.6307692307692307
+            },
+            "D": {
+              "count": 507,
+              "accuracy": 0.45956607495069035
+            }
+          },
+          "probability_stability": {
+            "gold_option": {
+              "mean_probability": 0.4796962523481343,
+              "mean_probability_std": 0.07447958968877763,
+              "median_probability_std": 0.06051402815379159,
+              "mean_probability_range": 0.1881385718770325,
+              "median_probability_range": 0.15468256175518036
+            },
+            "original_predicted_option": {
+              "mean_probability": 0.536661021550186,
+              "mean_probability_std": 0.08712529380433306,
+              "median_probability_std": 0.07697464182058084,
+              "mean_probability_range": 0.21942827432975173,
+              "median_probability_range": 0.19959691166877747
+            },
+            "all_semantic_options": {
+              "mean_probability_std": 0.058087550656338735,
+              "median_probability_std": 0.0424666776956618,
+              "mean_probability_range": 0.14678688251091807,
+              "median_probability_range": 0.10911673307418823
+            }
+          },
+          "candidate_mass": {
+            "mean": 0.7051618195474147,
+            "median": 0.7247130274772644,
+            "mean_within_sample_std": 0.016417397568678913,
+            "median_within_sample_std": 0.014836839769576277,
+            "mean_within_sample_range": 0.04211283302307129
+          },
+          "subjects": {
+            "abstract_algebra": {
+              "sample_count": 100,
+              "ordering_count": 400,
+              "accuracy": {
+                "original": 0.33,
+                "non_original_permutations": 0.3566666666666667,
+                "all_orderings": 0.35
+              },
+              "semantic_consistency": 0.3566666666666667,
+              "gold_consistency": {
+                "mean_fraction_correct": 0.35,
+                "all_4_correct_ratio": 0.09,
+                "at_least_3_of_4_correct_ratio": 0.17,
+                "never_correct_ratio": 0.29
+              },
+              "position_preference": {
+                "prediction": {
+                  "A": {
+                    "count": 43,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.1075
+                  },
+                  "B": {
+                    "count": 120,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.3
+                  },
+                  "C": {
+                    "count": 177,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.4425
+                  },
+                  "D": {
+                    "count": 60,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.15
+                  }
+                },
+                "gold": {
+                  "A": {
+                    "count": 86,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.215
+                  },
+                  "B": {
+                    "count": 107,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.2675
+                  },
+                  "C": {
+                    "count": 102,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.255
+                  },
+                  "D": {
+                    "count": 105,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.2625
+                  }
+                }
+              },
+              "label_conditioned_accuracy": {
+                "A": {
+                  "count": 86,
+                  "accuracy": 0.2558139534883721
+                },
+                "B": {
+                  "count": 107,
+                  "accuracy": 0.4205607476635514
+                },
+                "C": {
+                  "count": 102,
+                  "accuracy": 0.5392156862745098
+                },
+                "D": {
+                  "count": 105,
+                  "accuracy": 0.17142857142857143
+                }
+              },
+              "probability_stability": {
+                "gold_option": {
+                  "mean_probability": 0.3094251660071313,
+                  "mean_probability_std": 0.09554273735781654,
+                  "median_probability_std": 0.08350744235429544,
+                  "mean_probability_range": 0.24309083491563796,
+                  "median_probability_range": 0.210187129676342
+                },
+                "original_predicted_option": {
+                  "mean_probability": 0.3723707238771021,
+                  "mean_probability_std": 0.12448223146631572,
+                  "median_probability_std": 0.12315609124959578,
+                  "mean_probability_range": 0.31448034532368185,
+                  "median_probability_range": 0.31988800317049026
+                },
+                "all_semantic_options": {
+                  "mean_probability_std": 0.08507181274232073,
+                  "median_probability_std": 0.06723654928674502,
+                  "mean_probability_range": 0.21612672600429506,
+                  "median_probability_range": 0.1707012578845024
+                }
+              },
+              "candidate_mass": {
+                "mean": 0.6039986968785525,
+                "median": 0.6008780002593994,
+                "mean_within_sample_std": 0.019823492045390023,
+                "median_within_sample_std": 0.019298716892521363,
+                "mean_within_sample_range": 0.05073155045509339
+              },
+              "flip_rates": {
+                "correct_to_wrong": {
+                  "count": 54,
+                  "opportunities": 99,
+                  "rate": 0.5454545454545454
+                },
+                "wrong_to_correct": {
+                  "count": 62,
+                  "opportunities": 201,
+                  "rate": 0.30845771144278605
+                }
+              }
+            },
+            "computer_science": {
+              "sample_count": 100,
+              "ordering_count": 400,
+              "accuracy": {
+                "original": 0.59,
+                "non_original_permutations": 0.5066666666666667,
+                "all_orderings": 0.5275
+              },
+              "semantic_consistency": 0.61,
+              "gold_consistency": {
+                "mean_fraction_correct": 0.5275,
+                "all_4_correct_ratio": 0.27,
+                "at_least_3_of_4_correct_ratio": 0.46,
+                "never_correct_ratio": 0.21
+              },
+              "position_preference": {
+                "prediction": {
+                  "A": {
+                    "count": 93,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.2325
+                  },
+                  "B": {
+                    "count": 113,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.2825
+                  },
+                  "C": {
+                    "count": 119,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.2975
+                  },
+                  "D": {
+                    "count": 75,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.1875
+                  }
+                },
+                "gold": {
+                  "A": {
+                    "count": 105,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.2625
+                  },
+                  "B": {
+                    "count": 108,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.27
+                  },
+                  "C": {
+                    "count": 97,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.2425
+                  },
+                  "D": {
+                    "count": 90,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.225
+                  }
+                }
+              },
+              "label_conditioned_accuracy": {
+                "A": {
+                  "count": 105,
+                  "accuracy": 0.5142857142857142
+                },
+                "B": {
+                  "count": 108,
+                  "accuracy": 0.5648148148148148
+                },
+                "C": {
+                  "count": 97,
+                  "accuracy": 0.5773195876288659
+                },
+                "D": {
+                  "count": 90,
+                  "accuracy": 0.4444444444444444
+                }
+              },
+              "probability_stability": {
+                "gold_option": {
+                  "mean_probability": 0.39444079145789146,
+                  "mean_probability_std": 0.0689699752489129,
+                  "median_probability_std": 0.06404536719769476,
+                  "mean_probability_range": 0.1750663258880377,
+                  "median_probability_range": 0.16433023661375046
+                },
+                "original_predicted_option": {
+                  "mean_probability": 0.4408685044199228,
+                  "mean_probability_std": 0.07503231700872551,
+                  "median_probability_std": 0.07385234466700683,
+                  "mean_probability_range": 0.18942392215132714,
+                  "median_probability_range": 0.1840863972902298
+                },
+                "all_semantic_options": {
+                  "mean_probability_std": 0.05438037813576298,
+                  "median_probability_std": 0.045924877900522444,
+                  "mean_probability_range": 0.13812874881528842,
+                  "median_probability_range": 0.11612559854984283
+                }
+              },
+              "candidate_mass": {
+                "mean": 0.7365229989588261,
+                "median": 0.7603914737701416,
+                "mean_within_sample_std": 0.014262232308466655,
+                "median_within_sample_std": 0.012610132326846785,
+                "mean_within_sample_range": 0.03663059890270233
+              },
+              "flip_rates": {
+                "correct_to_wrong": {
+                  "count": 57,
+                  "opportunities": 177,
+                  "rate": 0.3220338983050847
+                },
+                "wrong_to_correct": {
+                  "count": 32,
+                  "opportunities": 123,
+                  "rate": 0.2601626016260163
+                }
+              }
+            },
+            "history": {
+              "sample_count": 100,
+              "ordering_count": 400,
+              "accuracy": {
+                "original": 0.77,
+                "non_original_permutations": 0.7633333333333333,
+                "all_orderings": 0.765
+              },
+              "semantic_consistency": 0.8666666666666667,
+              "gold_consistency": {
+                "mean_fraction_correct": 0.765,
+                "all_4_correct_ratio": 0.67,
+                "at_least_3_of_4_correct_ratio": 0.74,
+                "never_correct_ratio": 0.13
+              },
+              "position_preference": {
+                "prediction": {
+                  "A": {
+                    "count": 100,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.25
+                  },
+                  "B": {
+                    "count": 109,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.2725
+                  },
+                  "C": {
+                    "count": 92,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.23
+                  },
+                  "D": {
+                    "count": 99,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.2475
+                  }
+                },
+                "gold": {
+                  "A": {
+                    "count": 113,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.2825
+                  },
+                  "B": {
+                    "count": 98,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.245
+                  },
+                  "C": {
+                    "count": 105,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.2625
+                  },
+                  "D": {
+                    "count": 84,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.21
+                  }
+                }
+              },
+              "label_conditioned_accuracy": {
+                "A": {
+                  "count": 113,
+                  "accuracy": 0.7433628318584071
+                },
+                "B": {
+                  "count": 98,
+                  "accuracy": 0.8061224489795918
+                },
+                "C": {
+                  "count": 105,
+                  "accuracy": 0.7142857142857143
+                },
+                "D": {
+                  "count": 84,
+                  "accuracy": 0.8095238095238095
+                }
+              },
+              "probability_stability": {
+                "gold_option": {
+                  "mean_probability": 0.6458521870430559,
+                  "mean_probability_std": 0.07032176628507393,
+                  "median_probability_std": 0.05835780609494347,
+                  "mean_probability_range": 0.17833731211721898,
+                  "median_probability_range": 0.15272655338048935
+                },
+                "original_predicted_option": {
+                  "mean_probability": 0.6973682448081672,
+                  "mean_probability_std": 0.07748020338353892,
+                  "median_probability_std": 0.06829585168988825,
+                  "mean_probability_range": 0.19681168429553508,
+                  "median_probability_range": 0.17499229311943054
+                },
+                "all_semantic_options": {
+                  "mean_probability_std": 0.046532097501460236,
+                  "median_probability_std": 0.0255233636685223,
+                  "mean_probability_range": 0.11790918827275164,
+                  "median_probability_range": 0.06545647792518139
+                }
+              },
+              "candidate_mass": {
+                "mean": 0.7499130263924598,
+                "median": 0.751848042011261,
+                "mean_within_sample_std": 0.016355714560728575,
+                "median_within_sample_std": 0.015110085615032371,
+                "mean_within_sample_range": 0.04168967485427857
+              },
+              "flip_rates": {
+                "correct_to_wrong": {
+                  "count": 16,
+                  "opportunities": 231,
+                  "rate": 0.06926406926406926
+                },
+                "wrong_to_correct": {
+                  "count": 14,
+                  "opportunities": 69,
+                  "rate": 0.2028985507246377
+                }
+              }
+            },
+            "physics": {
+              "sample_count": 100,
+              "ordering_count": 400,
+              "accuracy": {
+                "original": 0.37,
+                "non_original_permutations": 0.42,
+                "all_orderings": 0.4075
+              },
+              "semantic_consistency": 0.4766666666666667,
+              "gold_consistency": {
+                "mean_fraction_correct": 0.4075,
+                "all_4_correct_ratio": 0.17,
+                "at_least_3_of_4_correct_ratio": 0.25,
+                "never_correct_ratio": 0.28
+              },
+              "position_preference": {
+                "prediction": {
+                  "A": {
+                    "count": 75,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.1875
+                  },
+                  "B": {
+                    "count": 147,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.3675
+                  },
+                  "C": {
+                    "count": 118,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.295
+                  },
+                  "D": {
+                    "count": 60,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.15
+                  }
+                },
+                "gold": {
+                  "A": {
+                    "count": 92,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.23
+                  },
+                  "B": {
+                    "count": 79,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.1975
+                  },
+                  "C": {
+                    "count": 101,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.2525
+                  },
+                  "D": {
+                    "count": 128,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.32
+                  }
+                }
+              },
+              "label_conditioned_accuracy": {
+                "A": {
+                  "count": 92,
+                  "accuracy": 0.43478260869565216
+                },
+                "B": {
+                  "count": 79,
+                  "accuracy": 0.5443037974683544
+                },
+                "C": {
+                  "count": 101,
+                  "accuracy": 0.44554455445544555
+                },
+                "D": {
+                  "count": 128,
+                  "accuracy": 0.2734375
+                }
+              },
+              "probability_stability": {
+                "gold_option": {
+                  "mean_probability": 0.36941908176988364,
+                  "mean_probability_std": 0.07006308181935643,
+                  "median_probability_std": 0.05148871480046974,
+                  "mean_probability_range": 0.17877866189926864,
+                  "median_probability_range": 0.13023152947425842
+                },
+                "original_predicted_option": {
+                  "mean_probability": 0.41945875285193324,
+                  "mean_probability_std": 0.08344362040509418,
+                  "median_probability_std": 0.07076299861535053,
+                  "mean_probability_range": 0.21046904876828193,
+                  "median_probability_range": 0.1755312830209732
+                },
+                "all_semantic_options": {
+                  "mean_probability_std": 0.05901869749734588,
+                  "median_probability_std": 0.04844413594738271,
+                  "mean_probability_range": 0.1498365986670251,
+                  "median_probability_range": 0.12335985898971558
+                }
+              },
+              "candidate_mass": {
+                "mean": 0.6118487168103457,
+                "median": 0.5979478657245636,
+                "mean_within_sample_std": 0.015373471803447303,
+                "median_within_sample_std": 0.013183021608789086,
+                "mean_within_sample_range": 0.04015013873577118
+              },
+              "flip_rates": {
+                "correct_to_wrong": {
+                  "count": 41,
+                  "opportunities": 111,
+                  "rate": 0.36936936936936937
+                },
+                "wrong_to_correct": {
+                  "count": 56,
+                  "opportunities": 189,
+                  "rate": 0.2962962962962963
+                }
+              }
+            },
+            "psychology": {
+              "sample_count": 100,
+              "ordering_count": 400,
+              "accuracy": {
+                "original": 0.77,
+                "non_original_permutations": 0.7466666666666667,
+                "all_orderings": 0.7525
+              },
+              "semantic_consistency": 0.8766666666666667,
+              "gold_consistency": {
+                "mean_fraction_correct": 0.7525,
+                "all_4_correct_ratio": 0.67,
+                "at_least_3_of_4_correct_ratio": 0.72,
+                "never_correct_ratio": 0.16
+              },
+              "position_preference": {
+                "prediction": {
+                  "A": {
+                    "count": 69,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.1725
+                  },
+                  "B": {
+                    "count": 106,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.265
+                  },
+                  "C": {
+                    "count": 126,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.315
+                  },
+                  "D": {
+                    "count": 99,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.2475
+                  }
+                },
+                "gold": {
+                  "A": {
+                    "count": 85,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.2125
+                  },
+                  "B": {
+                    "count": 100,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.25
+                  },
+                  "C": {
+                    "count": 115,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.2875
+                  },
+                  "D": {
+                    "count": 100,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.25
+                  }
+                }
+              },
+              "label_conditioned_accuracy": {
+                "A": {
+                  "count": 85,
+                  "accuracy": 0.6588235294117647
+                },
+                "B": {
+                  "count": 100,
+                  "accuracy": 0.76
+                },
+                "C": {
+                  "count": 115,
+                  "accuracy": 0.8434782608695652
+                },
+                "D": {
+                  "count": 100,
+                  "accuracy": 0.72
+                }
+              },
+              "probability_stability": {
+                "gold_option": {
+                  "mean_probability": 0.6793440354627092,
+                  "mean_probability_std": 0.06750038773272836,
+                  "median_probability_std": 0.035501868114208655,
+                  "mean_probability_range": 0.16541972456499934,
+                  "median_probability_range": 0.09393401443958282
+                },
+                "original_predicted_option": {
+                  "mean_probability": 0.7532388817938045,
+                  "mean_probability_std": 0.07518809675799103,
+                  "median_probability_std": 0.04542159236653723,
+                  "mean_probability_range": 0.18595637110993266,
+                  "median_probability_range": 0.11100757122039795
+                },
+                "all_semantic_options": {
+                  "mean_probability_std": 0.045434767404803844,
+                  "median_probability_std": 0.020754338499165574,
+                  "mean_probability_range": 0.11193315079523018,
+                  "median_probability_range": 0.05027346592396498
+                }
+              },
+              "candidate_mass": {
+                "mean": 0.8235256586968899,
+                "median": 0.8264399766921997,
+                "mean_within_sample_std": 0.016272077125362,
+                "median_within_sample_std": 0.01350420193840496,
+                "mean_within_sample_range": 0.041362202167510985
+              },
+              "flip_rates": {
+                "correct_to_wrong": {
+                  "count": 17,
+                  "opportunities": 231,
+                  "rate": 0.0735930735930736
+                },
+                "wrong_to_correct": {
+                  "count": 10,
+                  "opportunities": 69,
+                  "rate": 0.14492753623188406
+                }
+              }
+            }
+          },
+          "flip_rates": {
+            "correct_to_wrong": {
+              "count": 185,
+              "opportunities": 849,
+              "rate": 0.21790341578327443
+            },
+            "wrong_to_correct": {
+              "count": 174,
+              "opportunities": 651,
+              "rate": 0.2672811059907834
+            }
+          }
+        },
+        "commonsenseqa": {
+          "sample_count": 100,
+          "ordering_count": 400,
+          "accuracy": {
+            "original": 0.76,
+            "non_original_permutations": 0.7,
+            "all_orderings": 0.715
+          },
+          "semantic_consistency": 0.7233333333333334,
+          "gold_consistency": {
+            "mean_fraction_correct": 0.715,
+            "all_4_correct_ratio": 0.53,
+            "at_least_3_of_4_correct_ratio": 0.66,
+            "never_correct_ratio": 0.11
+          },
+          "position_preference": {
+            "prediction": {
+              "A": {
+                "count": 96,
+                "eligible_count": 400,
+                "normalized_frequency": 0.24
+              },
+              "B": {
+                "count": 99,
+                "eligible_count": 400,
+                "normalized_frequency": 0.2475
+              },
+              "C": {
+                "count": 74,
+                "eligible_count": 400,
+                "normalized_frequency": 0.185
+              },
+              "D": {
+                "count": 82,
+                "eligible_count": 400,
+                "normalized_frequency": 0.205
+              },
+              "E": {
+                "count": 49,
+                "eligible_count": 400,
+                "normalized_frequency": 0.1225
+              }
+            },
+            "gold": {
+              "A": {
+                "count": 78,
+                "eligible_count": 400,
+                "normalized_frequency": 0.195
+              },
+              "B": {
+                "count": 83,
+                "eligible_count": 400,
+                "normalized_frequency": 0.2075
+              },
+              "C": {
+                "count": 79,
+                "eligible_count": 400,
+                "normalized_frequency": 0.1975
+              },
+              "D": {
+                "count": 74,
+                "eligible_count": 400,
+                "normalized_frequency": 0.185
+              },
+              "E": {
+                "count": 86,
+                "eligible_count": 400,
+                "normalized_frequency": 0.215
+              }
+            }
+          },
+          "label_conditioned_accuracy": {
+            "A": {
+              "count": 78,
+              "accuracy": 0.8461538461538461
+            },
+            "B": {
+              "count": 83,
+              "accuracy": 0.8072289156626506
+            },
+            "C": {
+              "count": 79,
+              "accuracy": 0.6835443037974683
+            },
+            "D": {
+              "count": 74,
+              "accuracy": 0.7567567567567568
+            },
+            "E": {
+              "count": 86,
+              "accuracy": 0.5
+            }
+          },
+          "probability_stability": {
+            "gold_option": {
+              "mean_probability": 0.5714536226494238,
+              "mean_probability_std": 0.09712744400234279,
+              "median_probability_std": 0.08795586427642604,
+              "mean_probability_range": 0.2478128216601908,
+              "median_probability_range": 0.22903712838888168
+            },
+            "original_predicted_option": {
+              "mean_probability": 0.6029556613741442,
+              "mean_probability_std": 0.09962226098274178,
+              "median_probability_std": 0.09368112160167677,
+              "mean_probability_range": 0.2532721061445773,
+              "median_probability_range": 0.2329406626522541
+            },
+            "all_semantic_options": {
+              "mean_probability_std": 0.05324697879570222,
+              "median_probability_std": 0.032931314621938615,
+              "mean_probability_range": 0.13493446298892378,
+              "median_probability_range": 0.08331197686493397
+            }
+          },
+          "candidate_mass": {
+            "mean": 0.8460352811217308,
+            "median": 0.846283882856369,
+            "mean_within_sample_std": 0.01768256043147638,
+            "median_within_sample_std": 0.014824278870647394,
+            "mean_within_sample_range": 0.045471832156181335
+          },
+          "flip_rates": {
+            "correct_to_wrong": {
+              "count": 42,
+              "opportunities": 228,
+              "rate": 0.18421052631578946
+            },
+            "wrong_to_correct": {
+              "count": 24,
+              "opportunities": 72,
+              "rate": 0.3333333333333333
+            }
+          }
+        }
+      },
+      "parameter_count": 1720574976
+    },
+    "Qwen/Qwen3-4B-Base": {
+      "model": "Qwen/Qwen3-4B-Base",
+      "milestone": "4",
+      "datasets": {
+        "arc_challenge": {
+          "sample_count": 100,
+          "ordering_count": 400,
+          "accuracy": {
+            "original": 0.86,
+            "non_original_permutations": 0.8666666666666667,
+            "all_orderings": 0.865
+          },
+          "semantic_consistency": 0.8566666666666667,
+          "gold_consistency": {
+            "mean_fraction_correct": 0.865,
+            "all_4_correct_ratio": 0.76,
+            "at_least_3_of_4_correct_ratio": 0.84,
+            "never_correct_ratio": 0.04
+          },
+          "position_preference": {
+            "prediction": {
+              "A": {
+                "count": 91,
+                "eligible_count": 400,
+                "normalized_frequency": 0.2275
+              },
+              "B": {
+                "count": 109,
+                "eligible_count": 400,
+                "normalized_frequency": 0.2725
+              },
+              "C": {
+                "count": 111,
+                "eligible_count": 400,
+                "normalized_frequency": 0.2775
+              },
+              "D": {
+                "count": 89,
+                "eligible_count": 400,
+                "normalized_frequency": 0.2225
+              }
+            },
+            "gold": {
+              "A": {
+                "count": 83,
+                "eligible_count": 400,
+                "normalized_frequency": 0.2075
+              },
+              "B": {
+                "count": 107,
+                "eligible_count": 400,
+                "normalized_frequency": 0.2675
+              },
+              "C": {
+                "count": 104,
+                "eligible_count": 400,
+                "normalized_frequency": 0.26
+              },
+              "D": {
+                "count": 106,
+                "eligible_count": 400,
+                "normalized_frequency": 0.265
+              }
+            }
+          },
+          "label_conditioned_accuracy": {
+            "A": {
+              "count": 83,
+              "accuracy": 0.9156626506024096
+            },
+            "B": {
+              "count": 107,
+              "accuracy": 0.8878504672897196
+            },
+            "C": {
+              "count": 104,
+              "accuracy": 0.9038461538461539
+            },
+            "D": {
+              "count": 106,
+              "accuracy": 0.7641509433962265
+            }
+          },
+          "probability_stability": {
+            "gold_option": {
+              "mean_probability": 0.7437365543935448,
+              "mean_probability_std": 0.06686931095502224,
+              "median_probability_std": 0.046950419091210324,
+              "mean_probability_range": 0.17051032956689596,
+              "median_probability_range": 0.11961514502763748
+            },
+            "original_predicted_option": {
+              "mean_probability": 0.7528507884033024,
+              "mean_probability_std": 0.0701342216834559,
+              "median_probability_std": 0.05117726993455856,
+              "mean_probability_range": 0.1777338457852602,
+              "median_probability_range": 0.12741661071777344
+            },
+            "all_semantic_options": {
+              "mean_probability_std": 0.041579466987481106,
+              "median_probability_std": 0.016317316015680046,
+              "mean_probability_range": 0.10545862259634305,
+              "median_probability_range": 0.040340233128517866
+            }
+          },
+          "candidate_mass": {
+            "mean": 0.7928520940244198,
+            "median": 0.8010344803333282,
+            "mean_within_sample_std": 0.016267863729819493,
+            "median_within_sample_std": 0.013768666633060322,
+            "mean_within_sample_range": 0.0412406861782074
+          },
+          "flip_rates": {
+            "correct_to_wrong": {
+              "count": 17,
+              "opportunities": 258,
+              "rate": 0.06589147286821706
+            },
+            "wrong_to_correct": {
+              "count": 19,
+              "opportunities": 42,
+              "rate": 0.4523809523809524
+            }
+          }
+        },
+        "mmlu": {
+          "sample_count": 500,
+          "ordering_count": 2000,
+          "accuracy": {
+            "original": 0.67,
+            "non_original_permutations": 0.68,
+            "all_orderings": 0.6775
+          },
+          "semantic_consistency": 0.7533333333333333,
+          "gold_consistency": {
+            "mean_fraction_correct": 0.6775,
+            "all_4_correct_ratio": 0.514,
+            "at_least_3_of_4_correct_ratio": 0.634,
+            "never_correct_ratio": 0.168
+          },
+          "position_preference": {
+            "prediction": {
+              "A": {
+                "count": 579,
+                "eligible_count": 2000,
+                "normalized_frequency": 0.2895
+              },
+              "B": {
+                "count": 554,
+                "eligible_count": 2000,
+                "normalized_frequency": 0.277
+              },
+              "C": {
+                "count": 537,
+                "eligible_count": 2000,
+                "normalized_frequency": 0.2685
+              },
+              "D": {
+                "count": 330,
+                "eligible_count": 2000,
+                "normalized_frequency": 0.165
+              }
+            },
+            "gold": {
+              "A": {
+                "count": 481,
+                "eligible_count": 2000,
+                "normalized_frequency": 0.2405
+              },
+              "B": {
+                "count": 492,
+                "eligible_count": 2000,
+                "normalized_frequency": 0.246
+              },
+              "C": {
+                "count": 520,
+                "eligible_count": 2000,
+                "normalized_frequency": 0.26
+              },
+              "D": {
+                "count": 507,
+                "eligible_count": 2000,
+                "normalized_frequency": 0.2535
+              }
+            }
+          },
+          "label_conditioned_accuracy": {
+            "A": {
+              "count": 481,
+              "accuracy": 0.7713097713097713
+            },
+            "B": {
+              "count": 492,
+              "accuracy": 0.709349593495935
+            },
+            "C": {
+              "count": 520,
+              "accuracy": 0.698076923076923
+            },
+            "D": {
+              "count": 507,
+              "accuracy": 0.5364891518737672
+            }
+          },
+          "probability_stability": {
+            "gold_option": {
+              "mean_probability": 0.5798945824843831,
+              "mean_probability_std": 0.07104713047154493,
+              "median_probability_std": 0.060350426328101475,
+              "mean_probability_range": 0.17951765898242592,
+              "median_probability_range": 0.14947259426116943
+            },
+            "original_predicted_option": {
+              "mean_probability": 0.6327009680494666,
+              "mean_probability_std": 0.07671464856276898,
+              "median_probability_std": 0.06959140799668656,
+              "mean_probability_range": 0.19412374570965768,
+              "median_probability_range": 0.1777944564819336
+            },
+            "all_semantic_options": {
+              "mean_probability_std": 0.05181359046937821,
+              "median_probability_std": 0.036595044759233517,
+              "mean_probability_range": 0.1309320738990209,
+              "median_probability_range": 0.09342594724148512
+            }
+          },
+          "candidate_mass": {
+            "mean": 0.6992566361203789,
+            "median": 0.7229790091514587,
+            "mean_within_sample_std": 0.020890974078760432,
+            "median_within_sample_std": 0.017386584684888073,
+            "mean_within_sample_range": 0.053506271570920944
+          },
+          "subjects": {
+            "abstract_algebra": {
+              "sample_count": 100,
+              "ordering_count": 400,
+              "accuracy": {
+                "original": 0.45,
+                "non_original_permutations": 0.4533333333333333,
+                "all_orderings": 0.4525
+              },
+              "semantic_consistency": 0.63,
+              "gold_consistency": {
+                "mean_fraction_correct": 0.4525,
+                "all_4_correct_ratio": 0.24,
+                "at_least_3_of_4_correct_ratio": 0.39,
+                "never_correct_ratio": 0.32
+              },
+              "position_preference": {
+                "prediction": {
+                  "A": {
+                    "count": 158,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.395
+                  },
+                  "B": {
+                    "count": 115,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.2875
+                  },
+                  "C": {
+                    "count": 94,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.235
+                  },
+                  "D": {
+                    "count": 33,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.0825
+                  }
+                },
+                "gold": {
+                  "A": {
+                    "count": 86,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.215
+                  },
+                  "B": {
+                    "count": 107,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.2675
+                  },
+                  "C": {
+                    "count": 102,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.255
+                  },
+                  "D": {
+                    "count": 105,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.2625
+                  }
+                }
+              },
+              "label_conditioned_accuracy": {
+                "A": {
+                  "count": 86,
+                  "accuracy": 0.6744186046511628
+                },
+                "B": {
+                  "count": 107,
+                  "accuracy": 0.5514018691588785
+                },
+                "C": {
+                  "count": 102,
+                  "accuracy": 0.4411764705882353
+                },
+                "D": {
+                  "count": 105,
+                  "accuracy": 0.18095238095238095
+                }
+              },
+              "probability_stability": {
+                "gold_option": {
+                  "mean_probability": 0.38418671833584084,
+                  "mean_probability_std": 0.09159571365579569,
+                  "median_probability_std": 0.08321618530328957,
+                  "mean_probability_range": 0.23096778612583876,
+                  "median_probability_range": 0.21497716009616852
+                },
+                "original_predicted_option": {
+                  "mean_probability": 0.5034238043799997,
+                  "mean_probability_std": 0.10436167408944182,
+                  "median_probability_std": 0.09899291597056206,
+                  "mean_probability_range": 0.26318022444844247,
+                  "median_probability_range": 0.24630557745695114
+                },
+                "all_semantic_options": {
+                  "mean_probability_std": 0.07416559475924062,
+                  "median_probability_std": 0.06418016413669422,
+                  "mean_probability_range": 0.1866922759951558,
+                  "median_probability_range": 0.15943945944309235
+                }
+              },
+              "candidate_mass": {
+                "mean": 0.5883623657003045,
+                "median": 0.6297207772731781,
+                "mean_within_sample_std": 0.028809428598485575,
+                "median_within_sample_std": 0.026874103383678564,
+                "mean_within_sample_range": 0.07411892518401146
+              },
+              "flip_rates": {
+                "correct_to_wrong": {
+                  "count": 37,
+                  "opportunities": 135,
+                  "rate": 0.2740740740740741
+                },
+                "wrong_to_correct": {
+                  "count": 38,
+                  "opportunities": 165,
+                  "rate": 0.23030303030303031
+                }
+              }
+            },
+            "computer_science": {
+              "sample_count": 100,
+              "ordering_count": 400,
+              "accuracy": {
+                "original": 0.65,
+                "non_original_permutations": 0.65,
+                "all_orderings": 0.65
+              },
+              "semantic_consistency": 0.7,
+              "gold_consistency": {
+                "mean_fraction_correct": 0.65,
+                "all_4_correct_ratio": 0.43,
+                "at_least_3_of_4_correct_ratio": 0.63,
+                "never_correct_ratio": 0.18
+              },
+              "position_preference": {
+                "prediction": {
+                  "A": {
+                    "count": 115,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.2875
+                  },
+                  "B": {
+                    "count": 120,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.3
+                  },
+                  "C": {
+                    "count": 110,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.275
+                  },
+                  "D": {
+                    "count": 55,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.1375
+                  }
+                },
+                "gold": {
+                  "A": {
+                    "count": 105,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.2625
+                  },
+                  "B": {
+                    "count": 108,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.27
+                  },
+                  "C": {
+                    "count": 97,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.2425
+                  },
+                  "D": {
+                    "count": 90,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.225
+                  }
+                }
+              },
+              "label_conditioned_accuracy": {
+                "A": {
+                  "count": 105,
+                  "accuracy": 0.6857142857142857
+                },
+                "B": {
+                  "count": 108,
+                  "accuracy": 0.6851851851851852
+                },
+                "C": {
+                  "count": 97,
+                  "accuracy": 0.7319587628865979
+                },
+                "D": {
+                  "count": 90,
+                  "accuracy": 0.4777777777777778
+                }
+              },
+              "probability_stability": {
+                "gold_option": {
+                  "mean_probability": 0.5157423320505768,
+                  "mean_probability_std": 0.08410902987446127,
+                  "median_probability_std": 0.07224759730356502,
+                  "mean_probability_range": 0.21281109478324653,
+                  "median_probability_range": 0.19147531688213348
+                },
+                "original_predicted_option": {
+                  "mean_probability": 0.5580071525834501,
+                  "mean_probability_std": 0.09086320806520057,
+                  "median_probability_std": 0.0859105405815209,
+                  "mean_probability_range": 0.23006132662296294,
+                  "median_probability_range": 0.21286939084529877
+                },
+                "all_semantic_options": {
+                  "mean_probability_std": 0.06102922377523452,
+                  "median_probability_std": 0.050525942363702045,
+                  "mean_probability_range": 0.15454100419708994,
+                  "median_probability_range": 0.13060290552675724
+                }
+              },
+              "candidate_mass": {
+                "mean": 0.6712006250023842,
+                "median": 0.6982503235340118,
+                "mean_within_sample_std": 0.024443894679605827,
+                "median_within_sample_std": 0.01856847212714318,
+                "mean_within_sample_range": 0.06240794092416763
+              },
+              "flip_rates": {
+                "correct_to_wrong": {
+                  "count": 34,
+                  "opportunities": 195,
+                  "rate": 0.17435897435897435
+                },
+                "wrong_to_correct": {
+                  "count": 34,
+                  "opportunities": 105,
+                  "rate": 0.3238095238095238
+                }
+              }
+            },
+            "history": {
+              "sample_count": 100,
+              "ordering_count": 400,
+              "accuracy": {
+                "original": 0.84,
+                "non_original_permutations": 0.8633333333333333,
+                "all_orderings": 0.8575
+              },
+              "semantic_consistency": 0.89,
+              "gold_consistency": {
+                "mean_fraction_correct": 0.8575,
+                "all_4_correct_ratio": 0.75,
+                "at_least_3_of_4_correct_ratio": 0.84,
+                "never_correct_ratio": 0.07
+              },
+              "position_preference": {
+                "prediction": {
+                  "A": {
+                    "count": 119,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.2975
+                  },
+                  "B": {
+                    "count": 102,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.255
+                  },
+                  "C": {
+                    "count": 103,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.2575
+                  },
+                  "D": {
+                    "count": 76,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.19
+                  }
+                },
+                "gold": {
+                  "A": {
+                    "count": 113,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.2825
+                  },
+                  "B": {
+                    "count": 98,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.245
+                  },
+                  "C": {
+                    "count": 105,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.2625
+                  },
+                  "D": {
+                    "count": 84,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.21
+                  }
+                }
+              },
+              "label_conditioned_accuracy": {
+                "A": {
+                  "count": 113,
+                  "accuracy": 0.9380530973451328
+                },
+                "B": {
+                  "count": 98,
+                  "accuracy": 0.8571428571428571
+                },
+                "C": {
+                  "count": 105,
+                  "accuracy": 0.8380952380952381
+                },
+                "D": {
+                  "count": 84,
+                  "accuracy": 0.7738095238095238
+                }
+              },
+              "probability_stability": {
+                "gold_option": {
+                  "mean_probability": 0.7403650893224403,
+                  "mean_probability_std": 0.05231683154002593,
+                  "median_probability_std": 0.029372009266265063,
+                  "mean_probability_range": 0.13196254616603256,
+                  "median_probability_range": 0.07536786794662476
+                },
+                "original_predicted_option": {
+                  "mean_probability": 0.7621486867871136,
+                  "mean_probability_std": 0.05704506470732702,
+                  "median_probability_std": 0.032148228465878434,
+                  "mean_probability_range": 0.14359277758747338,
+                  "median_probability_range": 0.0823645293712616
+                },
+                "all_semantic_options": {
+                  "mean_probability_std": 0.03346674339594152,
+                  "median_probability_std": 0.012572303670939162,
+                  "mean_probability_range": 0.08456997041066643,
+                  "median_probability_range": 0.031454441137611866
+                }
+              },
+              "candidate_mass": {
+                "mean": 0.7542205910384655,
+                "median": 0.7577246427536011,
+                "mean_within_sample_std": 0.015755726816983007,
+                "median_within_sample_std": 0.014698966025127144,
+                "mean_within_sample_range": 0.040414524674415586
+              },
+              "flip_rates": {
+                "correct_to_wrong": {
+                  "count": 12,
+                  "opportunities": 252,
+                  "rate": 0.047619047619047616
+                },
+                "wrong_to_correct": {
+                  "count": 19,
+                  "opportunities": 48,
+                  "rate": 0.3958333333333333
+                }
+              }
+            },
+            "physics": {
+              "sample_count": 100,
+              "ordering_count": 400,
+              "accuracy": {
+                "original": 0.57,
+                "non_original_permutations": 0.57,
+                "all_orderings": 0.57
+              },
+              "semantic_consistency": 0.6633333333333333,
+              "gold_consistency": {
+                "mean_fraction_correct": 0.57,
+                "all_4_correct_ratio": 0.4,
+                "at_least_3_of_4_correct_ratio": 0.46,
+                "never_correct_ratio": 0.2
+              },
+              "position_preference": {
+                "prediction": {
+                  "A": {
+                    "count": 108,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.27
+                  },
+                  "B": {
+                    "count": 117,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.2925
+                  },
+                  "C": {
+                    "count": 108,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.27
+                  },
+                  "D": {
+                    "count": 67,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.1675
+                  }
+                },
+                "gold": {
+                  "A": {
+                    "count": 92,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.23
+                  },
+                  "B": {
+                    "count": 79,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.1975
+                  },
+                  "C": {
+                    "count": 101,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.2525
+                  },
+                  "D": {
+                    "count": 128,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.32
+                  }
+                }
+              },
+              "label_conditioned_accuracy": {
+                "A": {
+                  "count": 92,
+                  "accuracy": 0.6956521739130435
+                },
+                "B": {
+                  "count": 79,
+                  "accuracy": 0.620253164556962
+                },
+                "C": {
+                  "count": 101,
+                  "accuracy": 0.5346534653465347
+                },
+                "D": {
+                  "count": 128,
+                  "accuracy": 0.4765625
+                }
+              },
+              "probability_stability": {
+                "gold_option": {
+                  "mean_probability": 0.49822660532779994,
+                  "mean_probability_std": 0.07512781621703354,
+                  "median_probability_std": 0.06652607293075902,
+                  "mean_probability_range": 0.1910731765255332,
+                  "median_probability_range": 0.16476787254214287
+                },
+                "original_predicted_option": {
+                  "mean_probability": 0.5558802579250187,
+                  "mean_probability_std": 0.07901212092650874,
+                  "median_probability_std": 0.06688179529427277,
+                  "mean_probability_range": 0.20134018082171679,
+                  "median_probability_range": 0.17844730615615845
+                },
+                "all_semantic_options": {
+                  "mean_probability_std": 0.05666683615217661,
+                  "median_probability_std": 0.04299873030937074,
+                  "mean_probability_range": 0.14393453228229192,
+                  "median_probability_range": 0.11060583405196667
+                }
+              },
+              "candidate_mass": {
+                "mean": 0.6932955975085497,
+                "median": 0.6990278959274292,
+                "mean_within_sample_std": 0.018002325450269634,
+                "median_within_sample_std": 0.015222271279261686,
+                "mean_within_sample_range": 0.045865917801857
+              },
+              "flip_rates": {
+                "correct_to_wrong": {
+                  "count": 34,
+                  "opportunities": 171,
+                  "rate": 0.19883040935672514
+                },
+                "wrong_to_correct": {
+                  "count": 34,
+                  "opportunities": 129,
+                  "rate": 0.26356589147286824
+                }
+              }
+            },
+            "psychology": {
+              "sample_count": 100,
+              "ordering_count": 400,
+              "accuracy": {
+                "original": 0.84,
+                "non_original_permutations": 0.8633333333333333,
+                "all_orderings": 0.8575
+              },
+              "semantic_consistency": 0.8833333333333333,
+              "gold_consistency": {
+                "mean_fraction_correct": 0.8575,
+                "all_4_correct_ratio": 0.75,
+                "at_least_3_of_4_correct_ratio": 0.85,
+                "never_correct_ratio": 0.07
+              },
+              "position_preference": {
+                "prediction": {
+                  "A": {
+                    "count": 79,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.1975
+                  },
+                  "B": {
+                    "count": 100,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.25
+                  },
+                  "C": {
+                    "count": 122,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.305
+                  },
+                  "D": {
+                    "count": 99,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.2475
+                  }
+                },
+                "gold": {
+                  "A": {
+                    "count": 85,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.2125
+                  },
+                  "B": {
+                    "count": 100,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.25
+                  },
+                  "C": {
+                    "count": 115,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.2875
+                  },
+                  "D": {
+                    "count": 100,
+                    "eligible_count": 400,
+                    "normalized_frequency": 0.25
+                  }
+                }
+              },
+              "label_conditioned_accuracy": {
+                "A": {
+                  "count": 85,
+                  "accuracy": 0.8352941176470589
+                },
+                "B": {
+                  "count": 100,
+                  "accuracy": 0.83
+                },
+                "C": {
+                  "count": 115,
+                  "accuracy": 0.9130434782608695
+                },
+                "D": {
+                  "count": 100,
+                  "accuracy": 0.84
+                }
+              },
+              "probability_stability": {
+                "gold_option": {
+                  "mean_probability": 0.7609521673852577,
+                  "mean_probability_std": 0.0520862610704082,
+                  "median_probability_std": 0.027461745304011645,
+                  "mean_probability_range": 0.13077369131147862,
+                  "median_probability_range": 0.0739087238907814
+                },
+                "original_predicted_option": {
+                  "mean_probability": 0.7840449385717512,
+                  "mean_probability_std": 0.05229117502536677,
+                  "median_probability_std": 0.02959359540780703,
+                  "mean_probability_range": 0.13244421906769277,
+                  "median_probability_range": 0.07705894112586975
+                },
+                "all_semantic_options": {
+                  "mean_probability_std": 0.03373955426429776,
+                  "median_probability_std": 0.012423558223018806,
+                  "mean_probability_range": 0.08492258660990046,
+                  "median_probability_range": 0.031119751976802945
+                }
+              },
+              "candidate_mass": {
+                "mean": 0.7892040013521909,
+                "median": 0.8119180798530579,
+                "mean_within_sample_std": 0.017443494848458113,
+                "median_within_sample_std": 0.01525382445806878,
+                "mean_within_sample_range": 0.04472404927015305
+              },
+              "flip_rates": {
+                "correct_to_wrong": {
+                  "count": 12,
+                  "opportunities": 252,
+                  "rate": 0.047619047619047616
+                },
+                "wrong_to_correct": {
+                  "count": 19,
+                  "opportunities": 48,
+                  "rate": 0.3958333333333333
+                }
+              }
+            }
+          },
+          "flip_rates": {
+            "correct_to_wrong": {
+              "count": 129,
+              "opportunities": 1005,
+              "rate": 0.12835820895522387
+            },
+            "wrong_to_correct": {
+              "count": 144,
+              "opportunities": 495,
+              "rate": 0.2909090909090909
+            }
+          }
+        },
+        "commonsenseqa": {
+          "sample_count": 100,
+          "ordering_count": 400,
+          "accuracy": {
+            "original": 0.73,
+            "non_original_permutations": 0.74,
+            "all_orderings": 0.7375
+          },
+          "semantic_consistency": 0.77,
+          "gold_consistency": {
+            "mean_fraction_correct": 0.7375,
+            "all_4_correct_ratio": 0.59,
+            "at_least_3_of_4_correct_ratio": 0.66,
+            "never_correct_ratio": 0.11
+          },
+          "position_preference": {
+            "prediction": {
+              "A": {
+                "count": 96,
+                "eligible_count": 400,
+                "normalized_frequency": 0.24
+              },
+              "B": {
+                "count": 93,
+                "eligible_count": 400,
+                "normalized_frequency": 0.2325
+              },
+              "C": {
+                "count": 85,
+                "eligible_count": 400,
+                "normalized_frequency": 0.2125
+              },
+              "D": {
+                "count": 69,
+                "eligible_count": 400,
+                "normalized_frequency": 0.1725
+              },
+              "E": {
+                "count": 57,
+                "eligible_count": 400,
+                "normalized_frequency": 0.1425
+              }
+            },
+            "gold": {
+              "A": {
+                "count": 78,
+                "eligible_count": 400,
+                "normalized_frequency": 0.195
+              },
+              "B": {
+                "count": 83,
+                "eligible_count": 400,
+                "normalized_frequency": 0.2075
+              },
+              "C": {
+                "count": 79,
+                "eligible_count": 400,
+                "normalized_frequency": 0.1975
+              },
+              "D": {
+                "count": 74,
+                "eligible_count": 400,
+                "normalized_frequency": 0.185
+              },
+              "E": {
+                "count": 86,
+                "eligible_count": 400,
+                "normalized_frequency": 0.215
+              }
+            }
+          },
+          "label_conditioned_accuracy": {
+            "A": {
+              "count": 78,
+              "accuracy": 0.8461538461538461
+            },
+            "B": {
+              "count": 83,
+              "accuracy": 0.8433734939759037
+            },
+            "C": {
+              "count": 79,
+              "accuracy": 0.7341772151898734
+            },
+            "D": {
+              "count": 74,
+              "accuracy": 0.7162162162162162
+            },
+            "E": {
+              "count": 86,
+              "accuracy": 0.5581395348837209
+            }
+          },
+          "probability_stability": {
+            "gold_option": {
+              "mean_probability": 0.6270602803956717,
+              "mean_probability_std": 0.08881382152233724,
+              "median_probability_std": 0.071540074453531,
+              "mean_probability_range": 0.22015535231679678,
+              "median_probability_range": 0.17855963110923767
+            },
+            "original_predicted_option": {
+              "mean_probability": 0.6565964722353965,
+              "mean_probability_std": 0.08937603743287192,
+              "median_probability_std": 0.07567343505856221,
+              "mean_probability_range": 0.22103372629731893,
+              "median_probability_range": 0.18395839631557465
+            },
+            "all_semantic_options": {
+              "mean_probability_std": 0.04689367826696695,
+              "median_probability_std": 0.02283183871815842,
+              "mean_probability_range": 0.11603099190746434,
+              "median_probability_range": 0.058188281138427556
+            }
+          },
+          "candidate_mass": {
+            "mean": 0.8443648990988731,
+            "median": 0.8499404191970825,
+            "mean_within_sample_std": 0.015760503138304235,
+            "median_within_sample_std": 0.013239389989234848,
+            "mean_within_sample_range": 0.04005500555038452
+          },
+          "flip_rates": {
+            "correct_to_wrong": {
+              "count": 27,
+              "opportunities": 219,
+              "rate": 0.1232876712328767
+            },
+            "wrong_to_correct": {
+              "count": 30,
+              "opportunities": 81,
+              "rate": 0.37037037037037035
+            }
+          }
+        }
+      },
+      "parameter_count": 4022468096
+    }
+  }
+}

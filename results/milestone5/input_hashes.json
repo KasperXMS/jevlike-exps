@@ -1,0 +1,7 @@
+{
+  "results/arc_challenge_sample_ids.json": "89b5739c30706edb510135539a92939f81c3c5e61d0e7bc5f652d18aaa94d9fc",
+  "results/mmlu_sample_ids.json": "a6498580cd069fdc4466e13c8f4604058d886fb4b30e7c50a4e49e18a967806b",
+  "results/commonsenseqa_sample_ids.json": "ea318158150d83826bae914a73ac439e49a037f16f5b15b2cc28c6c33968692f",
+  "results/milestone4_permutations.json": "6d4f58de8cd79cd51ee80273a5ea740dab33a19f5a53a188a463ea909cc10a32",
+  "results/milestone4_calibration_split.json": "c2e4716f0f246f871002ebf703cb956467937c387589e1902738981a9537e5ea"
+}

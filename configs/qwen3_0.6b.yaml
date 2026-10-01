@@ -14,3 +14,7 @@ milestone3:
     - psychology
   mmlu_limit_per_subject: 100
   commonsenseqa_limit: 100
+milestone5:
+  models:
+    - Qwen/Qwen3-1.7B-Base
+    - Qwen/Qwen3-4B-Base

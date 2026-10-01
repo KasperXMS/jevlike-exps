@@ -1,0 +1,140 @@
+{
+  "milestone": "5",
+  "models": {
+    "Qwen/Qwen3-0.6B-Base": {
+      "model": "Qwen/Qwen3-0.6B-Base",
+      "parameter_count": 600000000,
+      "datasets": {
+        "arc_challenge": {
+          "sample_count": 100,
+          "generation": {
+            "accuracy": 0.53,
+            "parse_rate": 0.84,
+            "conditional_accuracy": 0.6309523809523809
+          },
+          "label_logit": {
+            "accuracy": 0.57,
+            "mean_candidate_mass": 0.25268654837447685,
+            "mean_restricted_confidence": 0.5822244557738304
+          }
+        },
+        "mmlu": {
+          "sample_count": 500,
+          "generation": {
+            "accuracy": 0.35,
+            "parse_rate": 0.694,
+            "conditional_accuracy": 0.5043227665706052
+          },
+          "label_logit": {
+            "accuracy": 0.426,
+            "mean_candidate_mass": 0.3330620827684179,
+            "mean_restricted_confidence": 0.4929745076298714
+          }
+        },
+        "commonsenseqa": {
+          "sample_count": 100,
+          "generation": {
+            "accuracy": 0.46,
+            "parse_rate": 0.93,
+            "conditional_accuracy": 0.4946236559139785
+          },
+          "label_logit": {
+            "accuracy": 0.54,
+            "mean_candidate_mass": 0.2267147834878415,
+            "mean_restricted_confidence": 0.526914909183979
+          }
+        }
+      }
+    },
+    "Qwen/Qwen3-1.7B-Base": {
+      "model": "Qwen/Qwen3-1.7B-Base",
+      "parameter_count": 1720574976,
+      "datasets": {
+        "arc_challenge": {
+          "sample_count": 100,
+          "generation": {
+            "accuracy": 0.66,
+            "parse_rate": 0.87,
+            "conditional_accuracy": 0.7586206896551724
+          },
+          "label_logit": {
+            "accuracy": 0.77,
+            "mean_candidate_mass": 0.7878690099716187,
+            "mean_restricted_confidence": 0.7376489299535751
+          }
+        },
+        "mmlu": {
+          "sample_count": 500,
+          "generation": {
+            "accuracy": 0.364,
+            "parse_rate": 0.612,
+            "conditional_accuracy": 0.5947712418300654
+          },
+          "label_logit": {
+            "accuracy": 0.566,
+            "mean_candidate_mass": 0.7083723821640014,
+            "mean_restricted_confidence": 0.6016113640069961
+          }
+        },
+        "commonsenseqa": {
+          "sample_count": 100,
+          "generation": {
+            "accuracy": 0.57,
+            "parse_rate": 0.76,
+            "conditional_accuracy": 0.75
+          },
+          "label_logit": {
+            "accuracy": 0.76,
+            "mean_candidate_mass": 0.8438295429944992,
+            "mean_restricted_confidence": 0.6530860632658004
+          }
+        }
+      }
+    },
+    "Qwen/Qwen3-4B-Base": {
+      "model": "Qwen/Qwen3-4B-Base",
+      "parameter_count": 4022468096,
+      "datasets": {
+        "arc_challenge": {
+          "sample_count": 100,
+          "generation": {
+            "accuracy": 0.84,
+            "parse_rate": 0.97,
+            "conditional_accuracy": 0.865979381443299
+          },
+          "label_logit": {
+            "accuracy": 0.86,
+            "mean_candidate_mass": 0.797561839222908,
+            "mean_restricted_confidence": 0.7861371439695358
+          }
+        },
+        "mmlu": {
+          "sample_count": 500,
+          "generation": {
+            "accuracy": 0.4,
+            "parse_rate": 0.584,
+            "conditional_accuracy": 0.684931506849315
+          },
+          "label_logit": {
+            "accuracy": 0.67,
+            "mean_candidate_mass": 0.7041209527254104,
+            "mean_restricted_confidence": 0.6797087557911873
+          }
+        },
+        "commonsenseqa": {
+          "sample_count": 100,
+          "generation": {
+            "accuracy": 0.72,
+            "parse_rate": 1.0,
+            "conditional_accuracy": 0.72
+          },
+          "label_logit": {
+            "accuracy": 0.73,
+            "mean_candidate_mass": 0.8466397351026536,
+            "mean_restricted_confidence": 0.7116201496124268
+          }
+        }
+      }
+    }
+  }
+}

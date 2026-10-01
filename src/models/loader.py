@@ -38,14 +38,16 @@ def load_model(config: dict[str, Any]) -> LoadedModel:
     device = _resolve_device(config.get("device", "auto"))
     dtype = _resolve_dtype(config.get("dtype", "auto"), device)
     trust_remote_code = bool(config.get("trust_remote_code", False))
+    cache_dir = config.get("cache_dir")
 
     tokenizer = AutoTokenizer.from_pretrained(
-        name, trust_remote_code=trust_remote_code
+        name, trust_remote_code=trust_remote_code, cache_dir=cache_dir
     )
     model = AutoModelForCausalLM.from_pretrained(
         name,
         dtype=dtype,
         trust_remote_code=trust_remote_code,
+        cache_dir=cache_dir,
     ).to(device)
     model.eval()
     return LoadedModel(name=name, model=model, tokenizer=tokenizer, device=device)

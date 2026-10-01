@@ -105,17 +105,20 @@ def _group_metrics(records: list[dict[str, Any]]) -> dict[str, Any]:
                 "mean_probability_std": mean(value[1] for value in gold_stability),
                 "median_probability_std": median(value[1] for value in gold_stability),
                 "mean_probability_range": mean(value[2] for value in gold_stability),
+                "median_probability_range": median(value[2] for value in gold_stability),
             },
             "original_predicted_option": {
                 "mean_probability": mean(value[0] for value in predicted_stability),
                 "mean_probability_std": mean(value[1] for value in predicted_stability),
                 "median_probability_std": median(value[1] for value in predicted_stability),
                 "mean_probability_range": mean(value[2] for value in predicted_stability),
+                "median_probability_range": median(value[2] for value in predicted_stability),
             },
             "all_semantic_options": {
                 "mean_probability_std": mean(all_option_stds),
                 "median_probability_std": median(all_option_stds),
                 "mean_probability_range": mean(all_option_ranges),
+                "median_probability_range": median(all_option_ranges),
             },
         },
         "candidate_mass": {

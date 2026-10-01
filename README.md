@@ -204,3 +204,91 @@ calling the 0.6B interface robust or calibrated already. Full manifests, raw
 records, summaries, frozen calibration IDs, temperatures, candidate-mass
 analysis, and reliability diagrams are under `results/` without overwriting any
 earlier milestone output.
+
+## Milestone 5: invariance scaling
+
+### Research question
+
+Milestone 5 tests whether the label/position sensitivity found in Milestone 4
+is mainly a small-model capability limit or a structural failure of label-token
+scoring. It compares three public, non-gated checkpoints from the same base
+model family: Qwen3-0.6B-Base, Qwen3-1.7B-Base, and Qwen3-4B-Base. The loaded
+models contain 0.600B (nominal), 1.721B, and 4.022B parameters respectively.
+
+### Setup
+
+The experiment reuses the exact 700 Milestone 3 sample IDs, all 2,800 entries
+in the Milestone 4 permutation manifest, the frozen calibration/test split,
+prompts, parser, and label-token inspection. New models run generation and
+label-logit on every original sample and label-logit on all orderings. The 0.6B
+records are derived without modification from the M3/M4 raw files.
+
+```powershell
+python scripts/run_milestone5.py --config configs/qwen3_0.6b.yaml
+```
+
+Original-order results show clear scaling of the label-logit interface. Gen.
+conditional accuracy is reported only over successfully parsed generations.
+
+| Model | Dataset | Gen. E2E | Parse | Gen. conditional | Label logit |
+| --- | --- | ---: | ---: | ---: | ---: |
+| 0.6B | ARC | 53.0% | 84.0% | 63.1% | 57.0% |
+| 0.6B | MMLU | 35.0% | 69.4% | 50.4% | 42.6% |
+| 0.6B | CSQA | 46.0% | 93.0% | 49.5% | 54.0% |
+| 1.7B | ARC | 66.0% | 87.0% | 75.9% | 77.0% |
+| 1.7B | MMLU | 36.4% | 61.2% | 59.5% | 56.6% |
+| 1.7B | CSQA | 57.0% | 76.0% | 75.0% | 76.0% |
+| 4B | ARC | 84.0% | 97.0% | 86.6% | 86.0% |
+| 4B | MMLU | 40.0% | 58.4% | 68.5% | 67.0% |
+| 4B | CSQA | 72.0% | 100.0% | 72.0% | 73.0% |
+
+### Invariance results
+
+Scaling improves every primary robustness signal. The aggregate row is
+sample-weighted, so the 500 MMLU examples retain their intended weight.
+
+| Model | Semantic consistency | C-to-W | W-to-C | Mean gold-prob. range |
+| --- | ---: | ---: | ---: | ---: |
+| 0.6B | 51.8% | 30.9% | 31.7% | 0.243 |
+| 1.7B | 67.2% | 19.4% | 27.0% | 0.197 |
+| 4B | 77.0% | 11.7% | 31.2% | 0.184 |
+
+At 4B, semantic consistency is 85.7% on ARC, 75.3% on MMLU, and
+77.0% on CommonsenseQA. Correct-to-wrong flips fall from 24.6%/33.8%/25.9%
+at 0.6B to 6.6%/12.8%/12.3% at 4B. Wrong-to-correct flips remain substantial,
+so unchanged aggregate accuracy would still be an inadequate robustness
+measure. The separately reported directions expose that cancellation.
+
+Position preference also weakens. The 0.6B model predicts B on 45.4% of MMLU
+orderings; the 4B distribution is A/B/C/D = 28.9%/27.7%/26.9%/16.5%.
+CommonsenseQA's 0.6B D preference (36.5%) becomes a much flatter
+24.0%/23.3%/21.2%/17.2%/14.2% distribution at 4B. Residual D/E under-selection
+means the interface is improved, not perfectly permutation invariant.
+
+### Calibration observation
+
+No new calibration method is fitted. On the unchanged held-out split, pooled
+raw ECE is 0.079, 0.046, and 0.067 from 0.6B through 4B. Restricted-confidence
+AUROC rises from 0.763 to 0.797 to 0.850. Candidate-mass AUROC is non-monotonic
+(0.604, 0.717, 0.642), reinforcing that candidate mass is an exploratory
+readiness signal rather than calibrated confidence or uncertainty.
+
+### Interpretation and limitations
+
+The evidence meets Route A: semantic consistency reaches 77% overall at 4B,
+correct-to-wrong flips fall by more than half, gold-probability instability
+declines, and position preference becomes materially flatter. In this tested
+range, most label-token instability is capability-limited rather than an
+unchanging structural ceiling. It is not fully eliminated, especially on MMLU
+and five-option CommonsenseQA.
+
+This conclusion is limited to one model family, three sizes, one prompt, three
+deterministic non-original permutations, and these frozen datasets. MMLU
+dominates the aggregate by design. Calibration estimates use only 560 held-out
+examples, and these evaluation timings are not performance benchmarks.
+
+The decision gate therefore selects **Route A / Milestone 6A**: benchmark
+generation versus label-logit on CUDA with synchronized timing, warm-up,
+multiple batch sizes, throughput, and peak-memory measurement. All M5 raw
+records, summaries, paired groups, invariance metrics, calibration observations,
+and seven scaling figures are in `results/milestone5/`.
