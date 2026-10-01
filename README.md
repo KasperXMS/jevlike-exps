@@ -362,3 +362,78 @@ whether a shared encoded state can answer multiple independent decision
 questions without repeating context prefill. Raw trials, the explicit
 memory-limit record, environment metadata, summary, validator, and separate
 speedup/throughput/memory plots are in `results/milestone6a/`.
+
+## Milestone 7: shared-state direction
+
+### Research question and setup
+
+The current datasets do not contain a genuine long context followed by several
+independent questions. Rather than invent that evidence, Milestone 7 performs a
+controlled systems probe using each selected M4 sample's four option-order
+branches. The question/instruction prefix is identical; only the ordered option
+suffix differs. This tests the KV-branching mechanism directly, but is not
+presented as a final multi-question benchmark.
+
+The baseline runs one batch-of-four full forward. The shared path encodes the
+question prefix once, expands its KV cache to four branches, and scores all four
+option suffixes together with zero decoding. Sixteen frozen four-option groups
+are tested on all three models, with two warm-ups and ten paired trials per
+group. Trial order alternates to reduce ordering bias. The exact tokenizer IDs
+are checked to satisfy `full_prompt_ids == prefix_ids + suffix_ids`.
+
+```powershell
+python scripts/run_milestone7_shared_state.py
+python scripts/run_milestone7_precision_audit.py
+python scripts/validate_milestone7.py
+```
+
+### Results
+
+The shared prefix averages 63.0% of full prompt tokens.
+
+| Model | Full mean | Shared mean | Full/shared speedup | Full/shared peak memory |
+| --- | ---: | ---: | ---: | ---: |
+| 0.6B | 89.1 ms | 109.3 ms | 0.81x | 1449 / 1420 MiB |
+| 1.7B | 122.3 ms | 109.9 ms | 1.11x | 3609 / 3569 MiB |
+| 4B | 276.4 ms | 167.8 ms | 1.65x | 8321 / 8101 MiB |
+
+Standard cache expansion repeats the prefix KV across branches, so memory
+savings are modest. Compute reuse becomes useful with model size: it is overhead
+at 0.6B, a small win at 1.7B, and a substantial win at 4B.
+
+BF16 is not numerically path-invariant. Full and segmented paths agree on all
+four branch predictions for 87.5% of 0.6B and 1.7B groups and 100% of 4B
+groups. Maximum restricted-probability differences are 0.054, 0.062, and 0.045.
+The four mismatching small-model groups are near decision ties. A saved float32
+serial audit of all 16 affected branches restores 100% prediction agreement and
+reduces the maximum probability difference below `2.1e-6`. This establishes
+that cache positions and semantic mappings are correct while preserving the
+important negative result: ordinary BF16 segmented attention can flip a
+near-tied decision.
+
+### Final interpretation
+
+The experiments support a qualified Jev-like direction:
+
+- Larger Qwen3 base models naturally develop a materially more stable
+  zero-decoding interface: weighted semantic consistency reaches 77.0% and
+  correct-to-wrong flips fall to 11.7% at 4B.
+- Label-token scoring still has residual position sensitivity; scaling reduces
+  it rather than proving structural invariance.
+- Autoregressive decoding is not required for competitive multiple-choice
+  accuracy here and carries measurable decode latency and KV-memory cost.
+- Zero decoding gives about 7.4x batch-1 latency benefit, but successful large-
+  batch gains narrow to roughly 1.2-1.7x as prefill dominates.
+- Shared-prefix KV branching is worthwhile for the 4B controlled workload, but
+  it is not a free optimization for small models and needs numerical care.
+- Route A did not justify training a semantic decision head. Such a head remains
+  an untested alternative, not a claimed improvement.
+
+The next meaningful experiment requires a dataset with a real shared context
+and multiple independent decision questions. Without that evidence, further
+head training or calibration work would outrun the current research question.
+The repository therefore stops at a positive but workload-specific conclusion:
+a stable-enough larger LM can provide useful zero-decoding decisions and clear
+systems gains, while general shared-state decision architecture claims remain
+open. M7 raw trials, precision audit, summaries, figures, validator, and the
+machine-readable conclusion are in `results/milestone7/`.

@@ -1,0 +1,17 @@
+{
+  "purpose": "Distinguish BF16 segmented-attention numerical sensitivity from a cache-position correctness bug",
+  "models": {
+    "Qwen/Qwen3-0.6B-Base": {
+      "mismatch_groups_audited": 2,
+      "branches": 8,
+      "prediction_agreement": 1.0,
+      "maximum_probability_delta": 1.430511474609375e-06
+    },
+    "Qwen/Qwen3-1.7B-Base": {
+      "mismatch_groups_audited": 2,
+      "branches": 8,
+      "prediction_agreement": 1.0,
+      "maximum_probability_delta": 2.0563602447509766e-06
+    }
+  }
+}

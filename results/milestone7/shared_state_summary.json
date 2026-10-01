@@ -1,0 +1,113 @@
+{
+  "models": {
+    "Qwen/Qwen3-0.6B-Base": {
+      "sample_groups": 16,
+      "trials": 160,
+      "branch_count": 4,
+      "mean_prefix_token_fraction": 0.629720769188141,
+      "full_forward_latency_ms": {
+        "mean": 89.08434252738952,
+        "p50": 56.84715270996094,
+        "p95": 256.2301956176758
+      },
+      "shared_total_latency_ms": {
+        "mean": 109.309117269516,
+        "p50": 107.29983901977539,
+        "p95": 123.1455726623535
+      },
+      "shared_prefix_latency_ms": {
+        "mean": 56.293949246406555,
+        "p50": 55.1940803527832,
+        "p95": 63.40786457061767
+      },
+      "shared_suffix_latency_ms": {
+        "mean": 53.01516802310944,
+        "p50": 52.138431549072266,
+        "p95": 60.01365146636962
+      },
+      "latency_speedup_full_over_shared": 0.8149763235919322,
+      "full_peak_cuda_memory_mib": 1448.66259765625,
+      "shared_peak_cuda_memory_mib": 1420.38525390625,
+      "prediction_agreement": 0.875,
+      "semantic_prediction_agreement": 0.875,
+      "mean_max_probability_delta": 0.027507370512466878,
+      "maximum_probability_delta": 0.053513914346694946
+    },
+    "Qwen/Qwen3-1.7B-Base": {
+      "sample_groups": 16,
+      "trials": 160,
+      "branch_count": 4,
+      "mean_prefix_token_fraction": 0.629720769188141,
+      "full_forward_latency_ms": {
+        "mean": 122.26491332054138,
+        "p50": 59.3361759185791,
+        "p95": 393.01535949707034
+      },
+      "shared_total_latency_ms": {
+        "mean": 109.92737627029419,
+        "p50": 107.68936157226562,
+        "p95": 123.7377212524414
+      },
+      "shared_prefix_latency_ms": {
+        "mean": 58.19982483386993,
+        "p50": 55.34310531616211,
+        "p95": 89.22178878784179
+      },
+      "shared_suffix_latency_ms": {
+        "mean": 51.72755126953125,
+        "p50": 52.15180778503418,
+        "p95": 58.54556255340576
+      },
+      "latency_speedup_full_over_shared": 1.1122335260682572,
+      "full_peak_cuda_memory_mib": 3608.59423828125,
+      "shared_peak_cuda_memory_mib": 3569.34033203125,
+      "prediction_agreement": 0.875,
+      "semantic_prediction_agreement": 0.875,
+      "mean_max_probability_delta": 0.03619935759343207,
+      "maximum_probability_delta": 0.062404632568359375
+    },
+    "Qwen/Qwen3-4B-Base": {
+      "sample_groups": 16,
+      "trials": 160,
+      "branch_count": 4,
+      "mean_prefix_token_fraction": 0.629720769188141,
+      "full_forward_latency_ms": {
+        "mean": 276.4039924144745,
+        "p50": 105.86408233642578,
+        "p95": 996.0652282714843
+      },
+      "shared_total_latency_ms": {
+        "mean": 167.80791416168213,
+        "p50": 144.76799774169922,
+        "p95": 298.3779571533203
+      },
+      "shared_prefix_latency_ms": {
+        "mean": 93.65627818107605,
+        "p50": 73.59436798095703,
+        "p95": 229.33233337402342
+      },
+      "shared_suffix_latency_ms": {
+        "mean": 74.15163578987122,
+        "p50": 70.4932632446289,
+        "p95": 111.98566513061523
+      },
+      "latency_speedup_full_over_shared": 1.6471451528094232,
+      "full_peak_cuda_memory_mib": 8321.330078125,
+      "shared_peak_cuda_memory_mib": 8101.47021484375,
+      "prediction_agreement": 1,
+      "semantic_prediction_agreement": 1,
+      "mean_max_probability_delta": 0.019061061553657055,
+      "maximum_probability_delta": 0.04455175995826721
+    }
+  },
+  "milestone": "7",
+  "experiment": "shared-prefix KV branching probe",
+  "environment": {
+    "python": "3.11.15",
+    "torch": "2.11.0+cu128",
+    "cuda_runtime": "12.8",
+    "gpu": "NVIDIA GeForce RTX 4060 Ti",
+    "warmups_per_group": 2,
+    "trials_per_group": 10
+  }
+}

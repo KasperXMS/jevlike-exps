@@ -1,0 +1,46 @@
+{
+  "milestone": "7",
+  "decision": "continue only with a real shared-context workload before additional architecture or training work",
+  "evidence": {
+    "label_logit_scaling": {
+      "sample_weighted_semantic_consistency": {
+        "qwen3_0_6b": 0.5176190476190476,
+        "qwen3_1_7b": 0.6723809523809523,
+        "qwen3_4b": 0.7704761904761903
+      },
+      "sample_weighted_correct_to_wrong_rate": {
+        "qwen3_0_6b": 0.30864197530864196,
+        "qwen3_1_7b": 0.19418960244648317,
+        "qwen3_4b": 0.11673414304993253
+      }
+    },
+    "zero_decoding_efficiency": {
+      "batch_1_speedup_range": [7.430035160108463, 7.4999261711052725],
+      "large_batch_observation": "Successful batch-32/64 speedups are 1.23x to 1.66x; 4B batch-64 generation is memory-limited while label-logit completes."
+    },
+    "shared_prefix_probe": {
+      "full_over_shared_latency_speedup": {
+        "qwen3_0_6b": 0.8149763235919322,
+        "qwen3_1_7b": 1.1122335260682572,
+        "qwen3_4b": 1.6471451528094232
+      },
+      "bf16_group_prediction_agreement": {
+        "qwen3_0_6b": 0.875,
+        "qwen3_1_7b": 0.875,
+        "qwen3_4b": 1.0
+      },
+      "float32_mismatch_audit": {
+        "prediction_agreement": 1.0,
+        "maximum_probability_delta": 2.0563602447509766e-06
+      }
+    }
+  },
+  "technical_conclusion": [
+    "Larger Qwen3 base models naturally develop a materially more stable zero-decoding label-logit interface, although residual position sensitivity remains.",
+    "Autoregressive decoding is not required for competitive multiple-choice decisions in this setup and imposes substantial latency and KV-memory cost.",
+    "The systems advantage is workload-dependent: it is largest at low batch size and narrows when shared prefill dominates.",
+    "Standard KV branching can reuse a long prompt prefix profitably for larger models, but BF16 segmented-attention numerics can flip near-tied small-model decisions.",
+    "A dedicated semantic decision head was not justified by the Route A gate; it remains an untested alternative rather than a demonstrated improvement."
+  ],
+  "next_required_evidence": "A dataset with genuine shared context and multiple independent decision questions, plus a numerically controlled shared-state implementation, is required before claiming a general Jev-like architecture benefit."
+}

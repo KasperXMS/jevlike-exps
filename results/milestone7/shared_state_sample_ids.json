@@ -1,0 +1,23 @@
+{
+  "source": "first 16 matching IDs from the frozen Milestone 6A four-option sample manifest",
+  "sample_groups": [
+    "mmlu:psychology:78:95358ef105f6a45178f5",
+    "mmlu:psychology:232:3a6f5e3d133bd786c040",
+    "mmlu:history:69:22fb4f726fc43d238e6d",
+    "mmlu:history:9:d0931ed040f140916d3d",
+    "mmlu:physics:59:a906acd95bc74c64dbf2",
+    "mmlu:history:177:9dbed80e470c16a3f246",
+    "mmlu:abstract_algebra:30:70d29314b9b6cb9946dd",
+    "mmlu:computer_science:12:89fe1367bb43126b7b6d",
+    "mmlu:history:215:0874b8353fe88332e95f",
+    "mmlu:physics:34:d95a1f4fb4b55379340e",
+    "Mercury_188528",
+    "mmlu:computer_science:65:763df670f4a4db0157d3",
+    "mmlu:psychology:175:5400f72ea7ece5f64a7b",
+    "mmlu:history:96:9c1a93ad4e974e7a4bc2",
+    "mmlu:computer_science:35:ac822991f1ec76b4ac27",
+    "mmlu:abstract_algebra:88:896c15128a6ecaf3b880"
+  ],
+  "branches_per_group": 4,
+  "branch_source": "results/milestone4_permutations.json"
+}
